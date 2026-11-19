@@ -35,8 +35,7 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -54,14 +53,199 @@
             z-index: 0;
         }
 
+        /* ===== PROFESSIONAL HEADER ===== */
+        .site-header {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            border-bottom: 1px solid rgba(198, 165, 91, 0.12);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .header-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(198, 165, 91, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gold);
+            background: rgba(198, 165, 91, 0.06);
+            flex-shrink: 0;
+        }
+
+        .header-brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .header-brand-text .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+        }
+
+        .header-brand-text .tag {
+            font-size: 9px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            color: var(--text-secondary);
+            letter-spacing: 0.5px;
+            font-weight: 300;
+        }
+
+        .header-contact .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--success);
+            box-shadow: 0 0 6px var(--success);
+            animation: pulseDot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            padding: 32px 0;
+        }
+
         .app-container {
             width: 100%;
             max-width: 560px;
-            padding: 24px 20px;
+            padding: 0 20px;
             position: relative;
             z-index: 1;
         }
 
+        /* ===== PROFESSIONAL FOOTER ===== */
+        .site-footer {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            border-top: 1px solid rgba(198, 165, 91, 0.12);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 28px 24px 24px;
+        }
+
+        .footer-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(198, 165, 91, 0.08);
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .footer-col h5 {
+            font-size: 10px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .footer-col p,
+        .footer-col a {
+            display: block;
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            line-height: 1.9;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover { color: var(--gold-light); }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            padding-top: 20px;
+        }
+
+        .footer-copy {
+            font-size: 11px;
+            color: rgba(176, 168, 154, 0.6);
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 18px;
+        }
+
+        .footer-legal a {
+            font-size: 11px;
+            color: rgba(176, 168, 154, 0.6);
+            text-decoration: none;
+            font-weight: 300;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover { color: var(--gold-light); }
+
+        /* ===== PAGE SYSTEM ===== */
         .page {
             display: none;
             opacity: 0;
@@ -77,6 +261,24 @@
         @keyframes pageEnter {
             from { opacity: 0; transform: translateY(30px) scale(0.98); }
             to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Staggered entrance for child elements */
+        .page.entering .stagger {
+            animation: staggerUp 0.6s var(--transition-smooth) both;
+        }
+
+        .page.entering .stagger:nth-child(1) { animation-delay: 0.05s; }
+        .page.entering .stagger:nth-child(2) { animation-delay: 0.12s; }
+        .page.entering .stagger:nth-child(3) { animation-delay: 0.19s; }
+        .page.entering .stagger:nth-child(4) { animation-delay: 0.26s; }
+        .page.entering .stagger:nth-child(5) { animation-delay: 0.33s; }
+        .page.entering .stagger:nth-child(6) { animation-delay: 0.40s; }
+        .page.entering .stagger:nth-child(7) { animation-delay: 0.47s; }
+
+        @keyframes staggerUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .brand { text-align: center; margin-bottom: 32px; }
@@ -776,320 +978,379 @@
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: var(--black); }
         ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
+
+        @media (max-width: 700px) {
+            .header-inner { padding: 14px 16px; }
+            .header-contact { display: none; }
+            .footer-top { flex-direction: column; gap: 20px; }
+            .footer-col { min-width: 100%; }
+            .footer-bottom { flex-direction: column; align-items: flex-start; }
+        }
     </style>
 </head>
 <body>
 
-<div class="app-container" id="app">
-
-    <!-- ===== PAGE 1: PERSONAL INFORMATION ===== -->
-    <div class="page active" id="page1">
-        <div class="brand">
-            <div class="brand-mark">Private Inquiry</div>
-            <div class="brand-divider"></div>
-        </div>
-
-        <div class="artist-feature">
-            <div class="artist-frame">
-                <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=400&h=400&fit=crop&crop=face" alt="Morgan Wallen" loading="eager">
+<!-- ===== PROFESSIONAL HEADER ===== -->
+<header class="site-header">
+    <div class="header-inner">
+        <a href="#" class="header-brand" onclick="goToPage(1); return false;">
+            <div class="header-logo">MW</div>
+            <div class="header-brand-text">
+                <span class="name">Morgan Wallen</span>
+                <span class="tag">Private Events</span>
             </div>
-            <div class="artist-name">Morgan <span>Wallen</span></div>
-            <div class="artist-sub">Private Event · 2027</div>
-        </div>
-
-        <h1 class="page-title">Personal Information</h1>
-        <p class="page-subtitle">Please provide your details to begin the inquiry process.</p>
-
-        <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" placeholder="Enter your full name" autocomplete="name">
-        </div>
-
-        <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
-        </div>
-
-        <div class="status-message error" id="page1Error"></div>
-
-        <button class="btn btn-primary" id="page1Btn" onclick="handlePage1()">Continue</button>
-
-        <div class="loader-overlay" id="page1Loader">
-            <div class="circular-loader">
-                <svg viewBox="0 0 80 80">
-                    <circle class="track" cx="40" cy="40" r="36"></circle>
-                    <circle class="progress" cx="40" cy="40" r="36"></circle>
-                </svg>
-            </div>
-            <div class="loader-text">Verifying your information<span class="pulse">...</span></div>
+        </a>
+        <div class="header-contact">
+            <span class="dot"></span>
+            <span>Booking team online · Response within 12 hrs</span>
         </div>
     </div>
+</header>
 
-    <!-- ===== PAGE 2: EVENT INFORMATION ===== -->
-    <div class="page" id="page2">
-        <div class="brand">
-            <div class="brand-mark">Private Inquiry</div>
-            <div class="brand-divider"></div>
-        </div>
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main-content">
+    <div class="app-container" id="app">
 
-        <h1 class="page-title">Event Information</h1>
-        <p class="page-subtitle">Tell us about your event. All dates are within the approved range.</p>
-
-        <div class="form-group">
-            <label for="eventDate">Preferred Date</label>
-            <input type="date" id="eventDate" min="2027-01-19" max="2027-03-04">
-        </div>
-
-        <div class="form-group">
-            <label for="country">Country</label>
-            <input type="text" id="country" placeholder="United States" autocomplete="country-name">
-        </div>
-
-        <div class="form-group">
-            <label for="city">City</label>
-            <input type="text" id="city" placeholder="Nashville" autocomplete="address-level2">
-        </div>
-
-        <div class="form-group">
-            <label for="venue">Preferred Venue / Location</label>
-            <input type="text" id="venue" placeholder="e.g., Bridgestone Arena">
-        </div>
-
-        <div class="form-group">
-            <label for="guests">Number of Guests</label>
-            <input type="number" id="guests" placeholder="e.g., 500" min="1">
-        </div>
-
-        <div class="status-message error" id="page2Error"></div>
-
-        <button class="btn btn-primary" id="page2Btn" onclick="handlePage2()">Continue</button>
-
-        <div class="loader-overlay" id="page2Loader">
-            <div class="circular-loader fast">
-                <svg viewBox="0 0 80 80">
-                    <circle class="track" cx="40" cy="40" r="36"></circle>
-                    <circle class="progress" cx="40" cy="40" r="36"></circle>
-                </svg>
-            </div>
-            <div class="loader-text">Please wait while we <span class="highlight">reconnect.</span></div>
-        </div>
-    </div>
-
-    <!-- ===== PAGE 3: PACKAGE SELECTION ===== -->
-    <div class="page" id="page3">
-        <div class="brand">
-            <div class="brand-mark">Private Inquiry</div>
-            <div class="brand-divider"></div>
-        </div>
-
-        <h1 class="page-title">Select Your Package</h1>
-        <p class="page-subtitle">Choose the experience that suits your event.</p>
-
-        <div class="package-grid">
-            <div class="package-card" id="pkgStandard" onclick="selectPackage('standard')">
-                <div class="package-tier">Standard</div>
-                <div class="package-price">$25,000</div>
-                <div class="package-duration">5 Hours</div>
-                <ul class="package-features">
-                    <li>Full performance</li>
-                    <li>5-hour set</li>
-                    <li>Meet & greet</li>
-                    <li>Standard sound</li>
-                </ul>
+        <!-- ===== PAGE 1: PERSONAL INFORMATION ===== -->
+        <div class="page active" id="page1">
+            <div class="brand stagger">
+                <div class="brand-mark">Private Inquiry</div>
+                <div class="brand-divider"></div>
             </div>
 
-            <div class="package-card" id="pkgVip" onclick="selectPackage('vip')">
-                <div class="package-tier">VIP</div>
-                <div class="package-price">$50,000</div>
-                <div class="package-duration">Full Day</div>
-                <ul class="package-features">
-                    <li>Full performance</li>
-                    <li>Full-day set</li>
-                    <li>Premium meet & greet</li>
-                    <li>Full production</li>
-                </ul>
+            <div class="artist-feature stagger">
+                <div class="artist-frame">
+                    <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=400&h=400&fit=crop&crop=face" alt="Morgan Wallen" loading="eager">
+                </div>
+                <div class="artist-name">Morgan <span>Wallen</span></div>
+                <div class="artist-sub">Private Event · 2027</div>
+            </div>
+
+            <h1 class="page-title stagger">Personal Information</h1>
+            <p class="page-subtitle stagger">Please provide your details to begin the inquiry process.</p>
+
+            <div class="form-group stagger">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter your full name" autocomplete="name">
+            </div>
+
+            <div class="form-group stagger">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
+            </div>
+
+            <div class="status-message error" id="page1Error"></div>
+
+            <button class="btn btn-primary stagger" id="page1Btn" onclick="handlePage1()">Continue</button>
+
+            <div class="loader-overlay" id="page1Loader">
+                <div class="circular-loader">
+                    <svg viewBox="0 0 80 80">
+                        <circle class="track" cx="40" cy="40" r="36"></circle>
+                        <circle class="progress" cx="40" cy="40" r="36"></circle>
+                    </svg>
+                </div>
+                <div class="loader-text">Verifying your information<span class="pulse">...</span></div>
             </div>
         </div>
 
-        <div class="status-message error" id="page3Error"></div>
+        <!-- ===== PAGE 2: EVENT INFORMATION ===== -->
+        <div class="page" id="page2">
+            <div class="brand stagger">
+                <div class="brand-mark">Private Inquiry</div>
+                <div class="brand-divider"></div>
+            </div>
 
-        <button class="btn btn-primary" id="page3Btn" onclick="handlePage3()" disabled>Continue</button>
-    </div>
+            <h1 class="page-title stagger">Event Information</h1>
+            <p class="page-subtitle stagger">Tell us about your event. All dates are within the approved range.</p>
 
-    <!-- ===== PAGE 4: COUNTDOWN ===== -->
-    <div class="page" id="page4">
-        <div class="brand">
-            <div class="brand-mark">Private Inquiry</div>
-            <div class="brand-divider"></div>
+            <div class="form-group stagger">
+                <label for="eventDate">Preferred Date</label>
+                <input type="date" id="eventDate" min="2027-01-19" max="2027-03-04">
+            </div>
+
+            <div class="form-group stagger">
+                <label for="country">Country</label>
+                <input type="text" id="country" placeholder="United States" autocomplete="country-name">
+            </div>
+
+            <div class="form-group stagger">
+                <label for="city">City</label>
+                <input type="text" id="city" placeholder="Nashville" autocomplete="address-level2">
+            </div>
+
+            <div class="form-group stagger">
+                <label for="venue">Preferred Venue / Location</label>
+                <input type="text" id="venue" placeholder="e.g., Bridgestone Arena">
+            </div>
+
+            <div class="form-group stagger">
+                <label for="guests">Number of Guests</label>
+                <input type="number" id="guests" placeholder="e.g., 500" min="1">
+            </div>
+
+            <div class="status-message error" id="page2Error"></div>
+
+            <button class="btn btn-primary stagger" id="page2Btn" onclick="handlePage2()">Continue</button>
+
+            <div class="loader-overlay" id="page2Loader">
+                <div class="circular-loader fast">
+                    <svg viewBox="0 0 80 80">
+                        <circle class="track" cx="40" cy="40" r="36"></circle>
+                        <circle class="progress" cx="40" cy="40" r="36"></circle>
+                    </svg>
+                </div>
+                <div class="loader-text">Please wait while we <span class="highlight">reconnect.</span></div>
+            </div>
         </div>
 
-        <h1 class="page-title">Review in Progress</h1>
-        <p class="page-subtitle">Your inquiry is being carefully reviewed by our team.</p>
+        <!-- ===== PAGE 3: PACKAGE SELECTION ===== -->
+        <div class="page" id="page3">
+            <div class="brand stagger">
+                <div class="brand-mark">Private Inquiry</div>
+                <div class="brand-divider"></div>
+            </div>
 
-        <div class="countdown-wrap">
-            <div class="countdown-svg-wrap">
-                <svg viewBox="0 0 200 200">
-                    <circle class="track" cx="100" cy="100" r="90"></circle>
-                    <circle class="progress" cx="100" cy="100" r="90" id="countdownProgress"></circle>
-                </svg>
-                <div class="countdown-center">
-                    <div class="countdown-time" id="countdownTime">12:00:00</div>
-                    <div class="countdown-label">Remaining</div>
+            <h1 class="page-title stagger">Select Your Package</h1>
+            <p class="page-subtitle stagger">Choose the experience that suits your event.</p>
+
+            <div class="package-grid stagger">
+                <div class="package-card" id="pkgStandard" onclick="selectPackage('standard')">
+                    <div class="package-tier">Standard</div>
+                    <div class="package-price">$25,000</div>
+                    <div class="package-duration">5 Hours</div>
+                    <ul class="package-features">
+                        <li>Full performance</li>
+                        <li>5-hour set</li>
+                        <li>Meet & greet</li>
+                        <li>Standard sound</li>
+                    </ul>
+                </div>
+
+                <div class="package-card" id="pkgVip" onclick="selectPackage('vip')">
+                    <div class="package-tier">VIP</div>
+                    <div class="package-price">$50,000</div>
+                    <div class="package-duration">Full Day</div>
+                    <ul class="package-features">
+                        <li>Full performance</li>
+                        <li>Full-day set</li>
+                        <li>Premium meet & greet</li>
+                        <li>Full production</li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="countdown-meta">
-                Your inquiry is under review by our booking team.<br>
-                <span class="gold">Check back in 12 hours</span> to see whether it has been accepted or rejected.
+            <div class="status-message error" id="page3Error"></div>
+
+            <button class="btn btn-primary stagger" id="page3Btn" onclick="handlePage3()" disabled>Continue</button>
+        </div>
+
+        <!-- ===== PAGE 4: COUNTDOWN ===== -->
+        <div class="page" id="page4">
+            <div class="brand stagger">
+                <div class="brand-mark">Private Inquiry</div>
+                <div class="brand-divider"></div>
             </div>
 
-            <div class="review-note">
-                <strong>Note:</strong> You may safely close this page or return later. Your review timer is saved automatically and will continue where it left off. A decision will be available once the review period ends.
+            <h1 class="page-title stagger">Review in Progress</h1>
+            <p class="page-subtitle stagger">Your inquiry is being carefully reviewed by our team.</p>
+
+            <div class="countdown-wrap">
+                <div class="countdown-svg-wrap stagger">
+                    <svg viewBox="0 0 200 200">
+                        <circle class="track" cx="100" cy="100" r="90"></circle>
+                        <circle class="progress" cx="100" cy="100" r="90" id="countdownProgress"></circle>
+                    </svg>
+                    <div class="countdown-center">
+                        <div class="countdown-time" id="countdownTime">12:00:00</div>
+                        <div class="countdown-label">Remaining</div>
+                    </div>
+                </div>
+
+                <div class="countdown-meta stagger">
+                    Your inquiry is under review by our booking team.<br>
+                    <span class="gold">Check back in 12 hours</span> to see whether it has been accepted or rejected.
+                </div>
+
+                <div class="review-note stagger">
+                    <strong>Note:</strong> You may safely close this page or return later. Your review timer is saved automatically and will continue where it left off. A decision will be available once the review period ends.
+                </div>
             </div>
         </div>
+
+        <!-- ===== PAGE 5: ACCEPTANCE ===== -->
+        <div class="page" id="page5">
+            <div class="brand stagger">
+                <div class="brand-mark">Private Inquiry</div>
+                <div class="brand-divider"></div>
+            </div>
+
+            <h1 class="page-title stagger">Congratulations</h1>
+            <p class="page-subtitle stagger">Your event inquiry has been accepted.</p>
+
+            <div class="acceptance-card stagger">
+                <div class="acceptance-icon">✦</div>
+                <h3>You Have Been Accepted</h3>
+                <p>We are pleased to confirm that your private event inquiry has been <strong>approved</strong> by our review team.</p>
+                <p>To secure your date and proceed with booking, a <strong>deposit payment</strong> is required. Full payment instructions will be provided on the next screen.</p>
+                <p>Your event details have been reserved temporarily. Please complete the next steps promptly to avoid release of your date.</p>
+            </div>
+
+            <button class="btn btn-primary stagger" onclick="goToPage(6)">Continue to Verification</button>
+        </div>
+
+        <!-- ===== PAGE 6: EMAIL CODE ===== -->
+        <div class="page" id="page6">
+            <div class="brand stagger">
+                <div class="brand-mark">Private Inquiry</div>
+                <div class="brand-divider"></div>
+            </div>
+
+            <h1 class="page-title stagger">Email Verification</h1>
+            <p class="page-subtitle stagger">Enter the 6-digit code sent to your email to continue.</p>
+
+            <div class="code-input-group stagger" id="codeGroup">
+                <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="0" autocomplete="one-time-code">
+                <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="1">
+                <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="2">
+                <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="3">
+                <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="4">
+                <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="5">
+            </div>
+
+            <div class="status-message error" id="page6Error"></div>
+
+            <button class="btn btn-primary stagger" id="page6Btn" onclick="handlePage6()">Continue</button>
+        </div>
+
+        <!-- ===== PAGE 7: PAYMENT SUMMARY ===== -->
+        <div class="page" id="page7">
+            <div class="brand stagger">
+                <div class="brand-mark">Private Inquiry</div>
+                <div class="brand-divider"></div>
+            </div>
+
+            <h1 class="page-title stagger">Payment Summary</h1>
+            <p class="page-subtitle stagger">Review your booking details before proceeding to payment.</p>
+
+            <div class="summary-card stagger">
+                <div class="summary-row">
+                    <span class="label">Package</span>
+                    <span class="value" id="payPackage">—</span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Duration</span>
+                    <span class="value" id="payDuration">—</span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Preferred Date</span>
+                    <span class="value" id="payDate">—</span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Venue</span>
+                    <span class="value" id="payVenue">—</span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Location</span>
+                    <span class="value" id="payLocation">—</span>
+                </div>
+                <div class="summary-row">
+                    <span class="label">Guests</span>
+                    <span class="value" id="payGuests">—</span>
+                </div>
+                <div class="summary-row total">
+                    <span class="label">Total Due</span>
+                    <span class="value" id="payTotal">—</span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary stagger" onclick="goToPage(8)">Proceed to Payment</button>
+        </div>
+
+        <!-- ===== PAGE 8: BANK ACCOUNT DETAILS ===== -->
+        <div class="page" id="page8">
+            <div class="brand stagger">
+                <div class="brand-mark">Private Inquiry</div>
+                <div class="brand-divider"></div>
+            </div>
+
+            <h1 class="page-title stagger">Payment Instructions</h1>
+            <p class="page-subtitle stagger">Complete your wire transfer using the account details below.</p>
+
+            <div class="account-card stagger">
+                <h4>Beneficiary Account Details</h4>
+                <div class="account-row">
+                    <span class="ac-label">Account Name</span>
+                    <span class="ac-value">Wallen Touring Group LLC</span>
+                </div>
+                <div class="account-row">
+                    <span class="ac-label">Bank Name</span>
+                    <span class="ac-value">First Horizon Bank</span>
+                </div>
+                <div class="account-row">
+                    <span class="ac-label">Routing Number</span>
+                    <span class="ac-value mono">084000026</span>
+                </div>
+                <div class="account-row">
+                    <span class="ac-label">Account Number</span>
+                    <span class="ac-value mono">7392041586</span>
+                </div>
+                <div class="account-row">
+                    <span class="ac-label">SWIFT / BIC</span>
+                    <span class="ac-value mono">FHBKUS44XXX</span>
+                </div>
+                <div class="account-row">
+                    <span class="ac-label">Reference</span>
+                    <span class="ac-value mono" id="acRef">—</span>
+                </div>
+            </div>
+
+            <div class="payment-note stagger">
+                <strong>Important:</strong> Please include your reference number in the wire transfer description. Your booking will be confirmed once the payment has been verified. Funds must be received within 48 hours to secure your reserved date.
+            </div>
+
+            <button class="btn btn-primary stagger" onclick="handlePaymentConfirmation()">Confirm Payment</button>
+
+            <div class="pending-status" id="pendingStatus" style="display: none;">
+                <div class="pending-icon">⏳</div>
+                <h4>Payment Not Confirmed</h4>
+                <p>We have not yet received your wire transfer. Please complete the payment using the account details above. This status will update once the funds are verified by our finance team.</p>
+            </div>
+        </div>
+
     </div>
-
-    <!-- ===== PAGE 5: ACCEPTANCE ===== -->
-    <div class="page" id="page5">
-        <div class="brand">
-            <div class="brand-mark">Private Inquiry</div>
-            <div class="brand-divider"></div>
-        </div>
-
-        <h1 class="page-title">Congratulations</h1>
-        <p class="page-subtitle">Your event inquiry has been accepted.</p>
-
-        <div class="acceptance-card">
-            <div class="acceptance-icon">✦</div>
-            <h3>You Have Been Accepted</h3>
-            <p>We are pleased to confirm that your private event inquiry has been <strong>approved</strong> by our review team.</p>
-            <p>To secure your date and proceed with booking, a <strong>deposit payment</strong> is required. Full payment instructions will be provided on the next screen.</p>
-            <p>Your event details have been reserved temporarily. Please complete the next steps promptly to avoid release of your date.</p>
-        </div>
-
-        <button class="btn btn-primary" onclick="goToPage(6)">Continue to Verification</button>
-    </div>
-
-    <!-- ===== PAGE 6: EMAIL CODE ===== -->
-    <div class="page" id="page6">
-        <div class="brand">
-            <div class="brand-mark">Private Inquiry</div>
-            <div class="brand-divider"></div>
-        </div>
-
-        <h1 class="page-title">Email Verification</h1>
-        <p class="page-subtitle">Enter the 6-digit code sent to your email to continue.</p>
-
-        <div class="code-input-group" id="codeGroup">
-            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="0" autocomplete="one-time-code">
-            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="1">
-            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="2">
-            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="3">
-            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="4">
-            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="5">
-        </div>
-
-        <div class="status-message error" id="page6Error"></div>
-
-        <button class="btn btn-primary" id="page6Btn" onclick="handlePage6()">Continue</button>
-    </div>
-
-    <!-- ===== PAGE 7: PAYMENT SUMMARY ===== -->
-    <div class="page" id="page7">
-        <div class="brand">
-            <div class="brand-mark">Private Inquiry</div>
-            <div class="brand-divider"></div>
-        </div>
-
-        <h1 class="page-title">Payment Summary</h1>
-        <p class="page-subtitle">Review your booking details before proceeding to payment.</p>
-
-        <div class="summary-card">
-            <div class="summary-row">
-                <span class="label">Package</span>
-                <span class="value" id="payPackage">—</span>
-            </div>
-            <div class="summary-row">
-                <span class="label">Duration</span>
-                <span class="value" id="payDuration">—</span>
-            </div>
-            <div class="summary-row">
-                <span class="label">Preferred Date</span>
-                <span class="value" id="payDate">—</span>
-            </div>
-            <div class="summary-row">
-                <span class="label">Venue</span>
-                <span class="value" id="payVenue">—</span>
-            </div>
-            <div class="summary-row">
-                <span class="label">Location</span>
-                <span class="value" id="payLocation">—</span>
-            </div>
-            <div class="summary-row">
-                <span class="label">Guests</span>
-                <span class="value" id="payGuests">—</span>
-            </div>
-            <div class="summary-row total">
-                <span class="label">Total Due</span>
-                <span class="value" id="payTotal">—</span>
-            </div>
-        </div>
-
-        <button class="btn btn-primary" onclick="goToPage(8)">Proceed to Payment</button>
-    </div>
-
-    <!-- ===== PAGE 8: BANK ACCOUNT DETAILS ===== -->
-    <div class="page" id="page8">
-        <div class="brand">
-            <div class="brand-mark">Private Inquiry</div>
-            <div class="brand-divider"></div>
-        </div>
-
-        <h1 class="page-title">Payment Instructions</h1>
-        <p class="page-subtitle">Complete your wire transfer using the account details below.</p>
-
-        <div class="account-card">
-            <h4>Beneficiary Account Details</h4>
-            <div class="account-row">
-                <span class="ac-label">Account Name</span>
-                <span class="ac-value">Wallen Touring Group LLC</span>
-            </div>
-            <div class="account-row">
-                <span class="ac-label">Bank Name</span>
-                <span class="ac-value">First Horizon Bank</span>
-            </div>
-            <div class="account-row">
-                <span class="ac-label">Routing Number</span>
-                <span class="ac-value mono">084000026</span>
-            </div>
-            <div class="account-row">
-                <span class="ac-label">Account Number</span>
-                <span class="ac-value mono">7392041586</span>
-            </div>
-            <div class="account-row">
-                <span class="ac-label">SWIFT / BIC</span>
-                <span class="ac-value mono">FHBKUS44XXX</span>
-            </div>
-            <div class="account-row">
-                <span class="ac-label">Reference</span>
-                <span class="ac-value mono" id="acRef">—</span>
-            </div>
-        </div>
-
-        <div class="payment-note">
-            <strong>Important:</strong> Please include your reference number in the wire transfer description. Your booking will be confirmed once the payment has been verified. Funds must be received within 48 hours to secure your reserved date.
-        </div>
-
-        <button class="btn btn-primary" onclick="handlePaymentConfirmation()">Confirm Payment</button>
-
-        <div class="pending-status" id="pendingStatus" style="display: none;">
-            <div class="pending-icon">⏳</div>
-            <h4>Payment Not Confirmed</h4>
-            <p>We have not yet received your wire transfer. Please complete the payment using the account details above. This status will update once the funds are verified by our finance team.</p>
-        </div>
-    </div>
-
 </div>
+
+<!-- ===== PROFESSIONAL FOOTER ===== -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-top">
+            <div class="footer-col">
+                <h5>Morgan Wallen</h5>
+                <p>Private Events Division</p>
+                <p>Nashville, Tennessee</p>
+            </div>
+            <div class="footer-col">
+                <h5>Inquiries</h5>
+                <a href="mailto:booking@morganwallen.com">booking@morganwallen.com</a>
+                <a href="tel:+16155550100">+1 (615) 555-0100</a>
+            </div>
+            <div class="footer-col">
+                <h5>Support</h5>
+                <a href="#">Booking FAQ</a>
+                <a href="#">Payment Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copy">© 2027 Morgan Wallen Private Events. All rights reserved.</span>
+            <div class="footer-legal">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 <script>
     // ============================================================
