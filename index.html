@@ -4,19 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#10100e">
 <title>Private Event Inquiry</title>
 
 <style>
 :root {
-  --bg: #10100e;
-  --panel: #191916;
-  --panel2: #22221e;
-  --gold: #c7a56b;
-  --gold-light: #ead4aa;
-  --white: #f8f5ef;
-  --muted: #aaa69c;
-  --line: rgba(234,212,170,.18);
+  --gold: #c8a66b;
+  --gold-light: #ead7b3;
+  --bg: #0d0d0c;
+  --panel: #191917;
+  --muted: #aaa69d;
 }
 
 * {
@@ -26,154 +22,169 @@
 }
 
 body {
-  background: var(--bg);
-  color: var(--white);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
   min-height: 100vh;
-}
-
-header {
-  min-height: 76px;
-  padding: 15px 7%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 1px solid var(--line);
-}
-
-.brand {
-  font-family: Georgia, serif;
-  color: var(--gold-light);
-  font-size: 20px;
-  letter-spacing: 2px;
-}
-
-.header-note {
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-.hero {
-  text-align: center;
-  padding: 85px 20px 75px;
   background:
-    radial-gradient(ellipse at top, #403421 0%, #211e18 42%, #10100e 82%);
-  border-bottom: 1px solid var(--line);
+    radial-gradient(circle at top, #29251d 0%, #11110f 42%, #080808 100%);
+  color: #f8f5ee;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 24px 15px 45px;
 }
 
-.eyebrow {
-  color: var(--gold-light);
-  font-size: 10px;
-  letter-spacing: 4px;
-  margin-bottom: 20px;
-}
-
-.hero h1 {
-  font-family: Georgia, serif;
-  font-size: clamp(38px, 7vw, 64px);
-  font-weight: normal;
-  line-height: 1.12;
-  margin-bottom: 18px;
-}
-
-.hero p {
-  color: #c7c1b5;
-  font-size: 14px;
-  max-width: 510px;
+.container {
+  max-width: 570px;
   margin: auto;
 }
 
-main {
-  width: min(650px, 92%);
-  margin: 45px auto 75px;
+header {
+  text-align: center;
+  padding: 18px 0 25px;
 }
 
-.progress-info {
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted);
-  font-size: 10px;
-  letter-spacing: 1.5px;
-  margin-bottom: 10px;
+.brand {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
 }
 
-.progress-track {
-  height: 2px;
-  background: #38372f;
-  margin-bottom: 24px;
-}
-
-.progress-fill {
-  height: 100%;
-  width: 33.33%;
+.header-line {
+  width: 55px;
+  height: 1px;
   background: var(--gold);
-  transition: width .3s ease;
+  margin: 16px auto;
+}
+
+header h1 {
+  font-family: Georgia, serif;
+  font-size: 31px;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+header p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.hero {
+  height: 275px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  border: 1px solid #51452f;
+  background: #171612;
+  margin-bottom: 23px;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  opacity: .83;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.88),
+    transparent 72%
+  );
+}
+
+.hero-caption {
+  position: absolute;
+  z-index: 2;
+  bottom: 20px;
+  left: 22px;
+}
+
+.hero-caption span {
+  display: block;
+  color: var(--gold-light);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 7px;
+}
+
+.hero-caption h2 {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: normal;
 }
 
 .panel {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  padding: clamp(24px, 5vw, 44px);
-  box-shadow: 0 25px 65px rgba(0,0,0,.3);
+  background: rgba(25,25,23,.97);
+  border: 1px solid #39352c;
+  border-radius: 13px;
+  padding: 27px 23px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.35);
 }
 
-.step {
-  display: none;
+.progress {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 27px;
 }
 
-.step.active {
-  display: block;
-  animation: appear .35s ease;
+.progress span {
+  height: 3px;
+  flex: 1;
+  border-radius: 10px;
+  background: #45423a;
 }
 
-@keyframes appear {
-  from { opacity: 0; transform: translateY(9px); }
-  to { opacity: 1; transform: translateY(0); }
+.progress span.active {
+  background: var(--gold);
 }
 
 .step-label {
   color: var(--gold);
-  font-size: 10px;
+  text-transform: uppercase;
   letter-spacing: 3px;
-  margin-bottom: 15px;
-}
-
-h2 {
-  font-family: Georgia, serif;
-  font-size: clamp(28px, 5vw, 37px);
-  font-weight: normal;
-  line-height: 1.2;
+  font-size: 10px;
   margin-bottom: 12px;
 }
 
-.intro {
-  color: var(--muted);
+h3 {
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: normal;
+  margin-bottom: 9px;
+}
+
+.description {
   font-size: 13px;
-  margin-bottom: 30px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 23px;
 }
 
 .field {
-  margin-bottom: 21px;
+  margin-bottom: 18px;
 }
 
 label {
   display: block;
-  color: #e7e1d5;
   font-size: 12px;
-  margin-bottom: 8px;
+  color: #d8d1c3;
+  margin-bottom: 9px;
 }
 
 input, select {
   width: 100%;
-  height: 53px;
-  padding: 0 14px;
-  color: var(--white);
+  padding: 15px 13px;
+  border-radius: 7px;
+  border: 1px solid #49453b;
   background: #11110f;
-  border: 1px solid #414039;
-  border-radius: 3px;
+  color: white;
   outline: none;
   font-size: 14px;
 }
@@ -183,532 +194,459 @@ input:focus, select:focus {
 }
 
 input::placeholder {
-  color: #77746d;
+  color: #77736b;
 }
 
 select option {
-  background: var(--panel);
+  background: #171715;
 }
 
-.package-list {
-  display: grid;
-  gap: 14px;
+.button {
+  width: 100%;
+  border: none;
+  padding: 16px;
+  border-radius: 7px;
+  background: linear-gradient(110deg, #a9854c, #e0c28d);
+  color: #17130d;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  margin-top: 7px;
+  transition: .2s;
+}
+
+.button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.back-button {
+  background: transparent;
+  color: var(--gold-light);
+  border: 1px solid #5a4d36;
+  margin-top: 12px;
 }
 
 .package {
-  display: block;
-  padding: 22px;
-  background: var(--panel2);
-  border: 1px solid #403e37;
+  border: 1px solid #4a4437;
+  border-radius: 9px;
+  padding: 18px;
+  margin-bottom: 13px;
   cursor: pointer;
-  transition: .2s ease;
+  background: #121210;
+  transition: .2s;
 }
 
-.package:hover,
 .package.selected {
   border-color: var(--gold);
-  background: rgba(199,166,107,.08);
+  background: #282217;
+  box-shadow: inset 0 0 0 1px var(--gold);
 }
 
-.package-heading {
+.package input {
+  width: auto;
+  accent-color: var(--gold);
+  margin-right: 9px;
+}
+
+.package-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
 }
 
-.package h3 {
-  font-family: Georgia, serif;
-  font-size: 22px;
-  font-weight: normal;
-}
-
-.price {
+.package-name {
   color: var(--gold-light);
-  font-size: 18px;
+  font-size: 13px;
+  letter-spacing: 2px;
   font-weight: bold;
-  white-space: nowrap;
+}
+
+.package-price {
+  font-family: Georgia, serif;
+  font-size: 23px;
+  color: white;
 }
 
 .package-description {
   color: var(--muted);
   font-size: 12px;
-  margin-top: 5px;
-}
-
-.package-select {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  margin-top: 15px;
-  font-size: 12px;
-}
-
-.package-select input {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--gold);
-}
-
-.location-area {
-  margin-top: 25px;
-}
-
-.location-area p {
-  color: var(--muted);
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-
-.location-control {
-  position: relative;
-}
-
-.location-control input {
-  filter: blur(4px);
-  transition: filter .2s ease;
-  padding-right: 85px;
-}
-
-.location-control.revealed input {
-  filter: none;
-}
-
-.reveal-button {
-  position: absolute;
-  right: 7px;
-  top: 7px;
-  min-height: 39px;
-  padding: 5px 12px;
-  background: #2c2a24;
-  border: 1px solid #555044;
-  color: var(--gold-light);
-  font-size: 11px;
-}
-
-.buttons {
-  display: flex;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-button {
-  min-height: 52px;
-  padding: 13px 22px;
-  border: 1px solid var(--gold);
-  border-radius: 3px;
-  background: var(--gold);
-  color: #17140f;
-  font-weight: bold;
-  cursor: pointer;
-  transition: .2s;
-}
-
-button:hover {
-  background: var(--gold-light);
-}
-
-button.primary {
-  flex: 1;
-}
-
-button.secondary {
-  background: transparent;
-  color: var(--white);
-  border-color: #55534c;
-}
-
-.error {
-  display: none;
-  color: #e5a39b;
-  font-size: 12px;
   margin-top: 10px;
+  line-height: 1.5;
 }
 
-.loading {
+.hidden {
+  display: none !important;
+}
+
+.loader-screen {
+  display: none;
   text-align: center;
-  padding: 35px 5px;
+  padding: 55px 15px;
 }
 
 .spinner {
-  width: 55px;
-  height: 55px;
-  border: 3px solid #3c392f;
-  border-top-color: var(--gold);
+  width: 65px;
+  height: 65px;
+  border: 3px solid #51452f;
+  border-top-color: var(--gold-light);
   border-radius: 50%;
   margin: 0 auto 25px;
-  animation: spin .9s linear infinite;
+  animation: rotate 1s linear infinite;
 }
 
-@keyframes spin {
+@keyframes rotate {
   to { transform: rotate(360deg); }
 }
 
-.loading p {
+.loader-screen h3 {
+  font-size: 22px;
+}
+
+.loader-screen p {
   color: var(--muted);
   font-size: 13px;
+  margin-top: 10px;
 }
 
-.confirmation {
+.notice {
+  color: #aaa397;
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 20px;
   text-align: center;
-  padding: 15px 0;
 }
 
-.confirmation-icon {
-  width: 65px;
-  height: 65px;
+.success-mark {
+  width: 62px;
+  height: 62px;
   border: 1px solid var(--gold);
+  color: var(--gold-light);
   border-radius: 50%;
   display: grid;
   place-items: center;
-  color: var(--gold-light);
   font-size: 27px;
-  margin: 0 auto 22px;
-}
-
-.confirmation-message {
-  color: #d0c9bc;
-  font-size: 14px;
-  margin-top: 20px;
+  margin: 0 auto 20px;
 }
 
 footer {
-  border-top: 1px solid var(--line);
-  padding: 28px 7%;
   text-align: center;
-  color: #89847b;
+  color: #77736b;
   font-size: 11px;
+  line-height: 1.7;
+  margin-top: 25px;
 }
 
-@media(max-width:600px) {
-  header {
-    padding: 16px 5%;
-  }
-
-  .header-note {
-    font-size: 8px;
-  }
-
-  .hero {
-    padding: 65px 20px;
-  }
-
-  main {
-    margin: 32px auto 55px;
-  }
-
-  .buttons {
-    flex-direction: column;
-  }
-
-  .buttons button {
-    width: 100%;
-  }
-
-  .package-heading {
-    align-items: flex-start;
-    flex-direction: column;
-  }
+@media(max-width: 420px) {
+  header h1 { font-size: 27px; }
+  .hero { height: 235px; }
+  .panel { padding: 23px 17px; }
+  .package-price { font-size: 20px; }
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="brand">PRIVATE EVENTS</div>
-  <div class="header-note">Event Inquiry</div>
-</header>
+<div class="container">
 
-<section class="hero">
-  <div class="eyebrow">PRIVATE EVENT EXPERIENCES</div>
-  <h1>An Experience<br>Worth Remembering</h1>
-  <p>
-    Begin your inquiry by providing your contact information
-    and preferred event arrangements.
-  </p>
-</section>
+  <header>
+    <div class="brand">Private Event Experiences</div>
+    <div class="header-line"></div>
+    <h1>Event Inquiry</h1>
+    <p>A refined experience begins with a few details.</p>
+  </header>
 
-<main>
-
-  <div class="progress-area" id="progressArea">
-    <div class="progress-info">
-      <span id="stageLabel">STAGE 01 OF 03</span>
-      <span id="percentage">33%</span>
-    </div>
-    <div class="progress-track">
-      <div class="progress-fill" id="progressFill"></div>
+  <div class="hero">
+    <img src="morgan-wallen.jpg" alt="Morgan Wallen portrait">
+    <div class="hero-caption">
+      <span>Featured Artist</span>
+      <h2>Music & Memories</h2>
     </div>
   </div>
 
-  <div class="panel">
+  <main class="panel">
 
-    <!-- STEP ONE -->
-    <section class="step active" id="stage1">
-      <div class="step-label">01 · CONTACT INFORMATION</div>
-      <h2>Let's get acquainted.</h2>
-      <p class="intro">
-        Enter your details to begin your inquiry.
-      </p>
+    <div id="formArea">
 
-      <div class="field">
-        <label for="fullName">Full name</label>
-        <input id="fullName" type="text"
-          placeholder="Enter your full name" autocomplete="name">
+      <div class="progress">
+        <span id="bar1" class="active"></span>
+        <span id="bar2"></span>
+        <span id="bar3"></span>
       </div>
 
-      <div class="field">
-        <label for="phone">Phone number</label>
-        <input id="phone" type="tel"
-          placeholder="Include country code" autocomplete="tel">
-      </div>
-
-      <div class="field">
-        <label for="email">Email address</label>
-        <input id="email" type="email"
-          placeholder="Enter your email address" autocomplete="email">
-      </div>
-
-      <p class="error" id="error1">
-        Please enter your name, phone number and a valid email address.
-      </p>
-
-      <div class="buttons">
-        <button class="primary" onclick="stageOneNext()">Continue</button>
-      </div>
-    </section>
-
-    <!-- STEP TWO -->
-    <section class="step" id="stage2">
-      <div class="step-label">02 · EVENT DETAILS</div>
-      <h2>Your preferred arrangements.</h2>
-      <p class="intro">
-        Select your preferred date and number of guests.
-      </p>
-
-      <div class="field">
-        <label for="eventDate">Preferred date</label>
-        <input id="eventDate" type="date"
-          min="2027-01-19" max="2027-03-04">
-      </div>
-
-      <div class="field">
-        <label for="guestCount">Number of guests</label>
-        <select id="guestCount">
-          <option value="">Select guest count</option>
-          <option value="1 guest">1 guest</option>
-          <option value="2 guests">2 guests</option>
-          <option value="3 guests">3 guests</option>
-          <option value="4 guests">4 guests</option>
-          <option value="5 guests">5 guests</option>
-          <option value="6–10 guests">6–10 guests</option>
-          <option value="11–20 guests">11–20 guests</option>
-          <option value="More than 20 guests">More than 20 guests</option>
-        </select>
-      </div>
-
-      <p class="error" id="error2">
-        Please select a date and number of guests.
-      </p>
-
-      <div class="buttons">
-        <button class="secondary" onclick="showStage(1)">Back</button>
-        <button class="primary" onclick="stageTwoNext()">Continue</button>
-      </div>
-    </section>
-
-    <!-- STEP THREE -->
-    <section class="step" id="stage3">
-      <div class="step-label">03 · PACKAGE SELECTION</div>
-      <h2>Select your experience.</h2>
-      <p class="intro">
-        Choose the package that best suits your preferences.
-      </p>
-
-      <div class="package-list">
-
-        <label class="package" id="standardPackage">
-          <div class="package-heading">
-            <h3>STANDARD</h3>
-            <span class="price">$25,000</span>
-          </div>
-          <p class="package-description">
-            Standard package selection.
-          </p>
-          <div class="package-select">
-            <input type="radio" name="package"
-              value="STANDARD — $25,000">
-            Select Standard
-          </div>
-        </label>
-
-        <label class="package" id="vipPackage">
-          <div class="package-heading">
-            <h3>VIP</h3>
-            <span class="price">$50,000</span>
-          </div>
-          <p class="package-description">
-            VIP package selection.
-          </p>
-          <div class="package-select">
-            <input type="radio" name="package"
-              value="VIP — $50,000">
-            Select VIP
-          </div>
-        </label>
-
-      </div>
-
-      <div class="location-area">
-        <label for="location">Preferred location (optional)</label>
-        <p>Location details can be entered privately.</p>
-        <div class="location-control" id="locationControl">
-          <input id="location" type="text"
-            placeholder="Enter preferred location">
-          <button type="button" class="reveal-button"
-            onclick="toggleLocation()">Reveal</button>
-        </div>
-      </div>
-
-      <p class="error" id="error3">
-        Please select a package to continue.
-      </p>
-
-      <div class="buttons">
-        <button class="secondary" onclick="showStage(2)">Back</button>
-        <button class="primary" onclick="submitInquiry()">Continue</button>
-      </div>
-    </section>
-
-    <!-- PROCESSING -->
-    <section class="step" id="processing">
-      <div class="loading">
-        <div class="spinner"></div>
-        <h2>Processing your inquiry.</h2>
-        <p>Please wait while your details are being prepared.</p>
-      </div>
-    </section>
-
-    <!-- FINAL -->
-    <section class="step" id="final">
-      <div class="confirmation">
-        <div class="confirmation-icon">✓</div>
-        <div class="step-label">INQUIRY RECEIVED</div>
-        <h2>Your inquiry is awaiting review.</h2>
-        <p class="confirmation-message">
-          Thank you for submitting your preferred event details.
-          If your inquiry is approved within 24 hours, a link will
-          be sent to your email address with further instructions.
+      <!-- STEP ONE -->
+      <section id="step1">
+        <div class="step-label">Step 01 / 03</div>
+        <h3>Personal Information</h3>
+        <p class="description">
+          Enter your contact details to begin your event inquiry.
         </p>
-      </div>
-    </section>
 
-  </div>
-</main>
+        <div class="field">
+          <label for="fullName">Full Name</label>
+          <input id="fullName" type="text" placeholder="Enter your full name">
+        </div>
 
-<footer>
-  <p>PRIVATE EVENT INQUIRIES</p>
-</footer>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input id="phone" type="tel" placeholder="Enter your phone number">
+        </div>
+
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input id="email" type="email" placeholder="Enter your email address">
+        </div>
+
+        <button class="button" onclick="nextStep(1)">
+          CONTINUE
+        </button>
+      </section>
+
+      <!-- STEP TWO -->
+      <section id="step2" class="hidden">
+        <div class="step-label">Step 02 / 03</div>
+        <h3>Event Preferences</h3>
+        <p class="description">
+          Tell us a little about your preferred event arrangements.
+        </p>
+
+        <div class="field">
+          <label for="eventDate">Preferred Date</label>
+          <input id="eventDate" type="date"
+                 min="2027-01-19" max="2027-03-04">
+        </div>
+
+        <div class="field">
+          <label for="guests">Number of Guests</label>
+          <select id="guests">
+            <option value="">Select number of guests</option>
+            <option>1 Guest</option>
+            <option>2 Guests</option>
+            <option>3 Guests</option>
+            <option>4 Guests</option>
+            <option>5 Guests</option>
+            <option>6 Guests</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="location">Preferred City / Location</label>
+          <input id="location" type="text"
+                 placeholder="Enter preferred location">
+        </div>
+
+        <button class="button" onclick="nextStep(2)">
+          CONTINUE
+        </button>
+
+        <button class="button back-button" onclick="showStep(1)">
+          GO BACK
+        </button>
+      </section>
+
+      <!-- STEP THREE -->
+      <section id="step3" class="hidden">
+        <div class="step-label">Step 03 / 03</div>
+        <h3>Select a Package</h3>
+        <p class="description">
+          Choose the package you would like to enquire about.
+        </p>
+
+        <div class="package" onclick="selectPackage('STANDARD', this)">
+          <div class="package-top">
+            <div class="package-name">STANDARD</div>
+            <div class="package-price">$25,000</div>
+          </div>
+          <p class="package-description">
+            Standard package inquiry.
+          </p>
+        </div>
+
+        <div class="package" onclick="selectPackage('VIP', this)">
+          <div class="package-top">
+            <div class="package-name">VIP</div>
+            <div class="package-price">$50,000</div>
+          </div>
+          <p class="package-description">
+            VIP package inquiry.
+          </p>
+        </div>
+
+        <button class="button" onclick="finishInquiry()">
+          COMPLETE INQUIRY
+        </button>
+
+        <button class="button back-button" onclick="showStep(2)">
+          GO BACK
+        </button>
+      </section>
+
+      <!-- FINAL SCREEN -->
+      <section id="finalScreen" class="hidden" style="text-align:center">
+        <div class="success-mark">✓</div>
+        <div class="step-label">Inquiry Details</div>
+        <h3>Thank You</h3>
+        <p class="description">
+          Your inquiry details have been prepared on this page.
+          No booking, artist access, or approval is confirmed.
+        </p>
+
+        <div style="text-align:left;background:#11110f;padding:18px;
+                    border:1px solid #48402f;border-radius:8px;
+                    margin:20px 0;font-size:13px;line-height:2">
+          <div><span style="color:#aaa">Name:</span> <span id="summaryName"></span></div>
+          <div><span style="color:#aaa">Email:</span> <span id="summaryEmail"></span></div>
+          <div><span style="color:#aaa">Package:</span> <span id="summaryPackage"></span></div>
+          <div><span style="color:#aaa">Date:</span> <span id="summaryDate"></span></div>
+        </div>
+
+        <p class="notice">
+          This page does not send or store your information online.
+          Do not make a payment based solely on this inquiry page.
+        </p>
+
+        <button class="button back-button" onclick="restartForm()">
+          START AGAIN
+        </button>
+      </section>
+
+    </div>
+
+    <!-- ROTATING TRANSITION -->
+    <div class="loader-screen" id="loader">
+      <div class="spinner"></div>
+      <h3>One Moment</h3>
+      <p>Please wait while the next section loads.</p>
+    </div>
+
+  </main>
+
+  <footer>
+    Private Event Experiences<br>
+    Event inquiry and information
+  </footer>
+
+</div>
 
 <script>
-function showStage(number) {
-  document.querySelectorAll(".step").forEach(section => {
-    section.classList.remove("active");
-  });
+let selectedPackage = "";
 
-  document.getElementById("stage" + number).classList.add("active");
+function showStep(number) {
+  document.getElementById("step1").classList.add("hidden");
+  document.getElementById("step2").classList.add("hidden");
+  document.getElementById("step3").classList.add("hidden");
+  document.getElementById("finalScreen").classList.add("hidden");
 
-  const percent = number * 33.333;
+  document.getElementById("step" + number).classList.remove("hidden");
 
-  document.getElementById("progressFill").style.width =
-    percent + "%";
-
-  document.getElementById("percentage").textContent =
-    Math.round(percent) + "%";
-
-  document.getElementById("stageLabel").textContent =
-    "STAGE 0" + number + " OF 03";
-
-  window.scrollTo({top: 0, behavior: "smooth"});
-}
-
-function stageOneNext() {
-  const name = document.getElementById("fullName").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const email = document.getElementById("email").value.trim();
-
-  const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const validPhone = phone.replace(/\D/g, "").length >= 7;
-
-  if (!name || !validPhone || !validEmail) {
-    document.getElementById("error1").style.display = "block";
-    return;
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById("bar" + i)
+      .classList.toggle("active", i <= number);
   }
-
-  document.getElementById("error1").style.display = "none";
-  showStage(2);
 }
 
-function stageTwoNext() {
-  const date = document.getElementById("eventDate").value;
-  const guests = document.getElementById("guestCount").value;
-
-  if (!date || !guests ||
-      date < "2027-01-19" || date > "2027-03-04") {
-    document.getElementById("error2").style.display = "block";
-    return;
-  }
-
-  document.getElementById("error2").style.display = "none";
-  showStage(3);
-}
-
-document.querySelectorAll('input[name="package"]').forEach(input => {
-  input.addEventListener("change", () => {
-    document.querySelectorAll(".package").forEach(card => {
-      card.classList.remove("selected");
-    });
-
-    input.closest(".package").classList.add("selected");
-  });
-});
-
-function toggleLocation() {
-  const control = document.getElementById("locationControl");
-  const button = control.querySelector("button");
-
-  control.classList.toggle("revealed");
-
-  button.textContent = control.classList.contains("revealed")
-    ? "Hide" : "Reveal";
-}
-
-function submitInquiry() {
-  const selected = document.querySelector(
-    'input[name="package"]:checked'
-  );
-
-  if (!selected) {
-    document.getElementById("error3").style.display = "block";
-    return;
-  }
-
-  document.getElementById("error3").style.display = "none";
-
-  document.getElementById("progressArea").style.display = "none";
-
-  document.querySelectorAll(".step").forEach(section => {
-    section.classList.remove("active");
-  });
-
-  document.getElementById("processing").classList.add("active");
-
-  window.scrollTo({top: 0, behavior: "smooth"});
+function transitionTo(next) {
+  document.getElementById("formArea").style.display = "none";
+  document.getElementById("loader").style.display = "block";
 
   setTimeout(() => {
-    document.getElementById("processing").classList.remove("active");
-    document.getElementById("final").classList.add("active");
-  }, 10000);
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("formArea").style.display = "block";
+    showStep(next);
+  }, 2500);
+}
+
+function nextStep(current) {
+  if (current === 1) {
+    const name = document.getElementById("fullName").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+
+    if (!name || !phone || !email) {
+      alert("Please complete all personal information fields.");
+      return;
+    }
+
+    if (!document.getElementById("email").checkValidity()) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+  }
+
+  if (current === 2) {
+    const date = document.getElementById("eventDate").value;
+    const guests = document.getElementById("guests").value;
+    const location = document.getElementById("location").value.trim();
+
+    if (!date || !guests || !location) {
+      alert("Please complete all event preference fields.");
+      return;
+    }
+  }
+
+  transitionTo(current + 1);
+}
+
+function selectPackage(name, element) {
+  selectedPackage = name;
+
+  document.querySelectorAll(".package").forEach(card => {
+    card.classList.remove("selected");
+  });
+
+  element.classList.add("selected");
+}
+
+function finishInquiry() {
+  if (!selectedPackage) {
+    alert("Please select a package before continuing.");
+    return;
+  }
+
+  document.getElementById("formArea").style.display = "none";
+  document.getElementById("loader").style.display = "block";
+
+  setTimeout(() => {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("formArea").style.display = "block";
+
+    document.getElementById("step1").classList.add("hidden");
+    document.getElementById("step2").classList.add("hidden");
+    document.getElementById("step3").classList.add("hidden");
+
+    document.getElementById("finalScreen").classList.remove("hidden");
+
+    document.getElementById("summaryName").textContent =
+      document.getElementById("fullName").value;
+
+    document.getElementById("summaryEmail").textContent =
+      document.getElementById("email").value;
+
+    document.getElementById("summaryPackage").textContent =
+      selectedPackage === "VIP" ? "VIP — $50,000" : "STANDARD — $25,000";
+
+    document.getElementById("summaryDate").textContent =
+      document.getElementById("eventDate").value;
+  }, 2500);
+}
+
+function restartForm() {
+  selectedPackage = "";
+
+  document.querySelectorAll("input").forEach(input => {
+    input.value = "";
+  });
+
+  document.getElementById("guests").selectedIndex = 0;
+
+  document.querySelectorAll(".package").forEach(card => {
+    card.classList.remove("selected");
+  });
+
+  document.getElementById("finalScreen").classList.add("hidden");
+  showStep(1);
 }
 </script>
 
