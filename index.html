@@ -1,361 +1,1554 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Private Experience | Inquiry Portal</title>
-<style>
-:root {
-  --gold:#d1ae73;
-  --light:#f1dfbd;
-  --bg:#090a0b;
-  --panel:#151617;
-  --muted:#aaa9a5;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  background:radial-gradient(ellipse at top,#28231a,#0b0c0d 60%);
-  color:#f7f4ed;
-  font-family:Arial,sans-serif;
-  min-height:100vh;
-  padding:24px 15px 50px;
-}
-.container{max-width:560px;margin:auto}
-header{text-align:center;padding:20px 0 25px}
-.brand{font-size:10px;letter-spacing:5px;color:var(--gold)}
-.line{width:55px;height:1px;background:var(--gold);margin:17px auto}
-header h1{font:normal 32px Georgia,serif}
-header p{color:var(--muted);font-size:12px;margin-top:10px}
-.hero{
-  height:230px;border:1px solid #5b4a2d;border-radius:12px;
-  overflow:hidden;position:relative;margin-bottom:22px;
-  background:#191714;
-}
-.hero img{width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.8}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent,#000d)}
-.hero-caption{position:absolute;bottom:20px;left:20px;z-index:1}
-.hero-caption small{color:var(--light);letter-spacing:3px}
-.hero-caption h2{font:normal 25px Georgia,serif;margin-top:7px}
-.panel{
-  background:var(--panel);border:1px solid #39352c;
-  border-radius:13px;padding:26px 22px;
-  box-shadow:0 20px 60px #0008;
-}
-.steps{display:flex;gap:7px;margin-bottom:26px}
-.steps span{height:3px;background:#45413a;flex:1;border-radius:5px}
-.steps span.active{background:var(--gold)}
-.eyebrow{color:var(--gold);font-size:10px;letter-spacing:3px;margin-bottom:12px}
-h3{font:normal 25px Georgia,serif;margin-bottom:10px}
-.desc{color:var(--muted);font-size:13px;line-height:1.7;margin-bottom:23px}
-.field{margin-bottom:17px}
-label{display:block;color:#d8d1c4;font-size:12px;margin-bottom:8px}
-input,select{
-  width:100%;padding:15px 13px;border:1px solid #48443a;
-  border-radius:7px;background:#0d0e0f;color:white;font-size:14px;
-  outline:none;
-}
-input:focus,select:focus{border-color:var(--gold)}
-button{
-  width:100%;padding:16px;border:0;border-radius:7px;
-  background:linear-gradient(110deg,#a7834b,#e4c58d);
-  color:#17130d;font-weight:bold;letter-spacing:1.5px;
-  cursor:pointer;margin-top:8px;
-}
-button.secondary{background:transparent;border:1px solid #615137;color:var(--light)}
-.hidden{display:none!important}
-.loader{text-align:center;padding:45px 5px}
-.spinner{
-  width:76px;height:76px;border:3px solid #4b402d;
-  border-top-color:var(--light);border-right-color:var(--gold);
-  border-radius:50%;margin:0 auto 25px;
-  animation:spin 1s linear infinite;
-  box-shadow:0 0 25px #c7a66b18;
-}
-@keyframes spin{to{transform:rotate(360deg)}}
-.loader h3{font-size:22px}
-.loader p{font-size:12px;color:var(--muted);margin-top:10px}
-.timer-wrap{text-align:center;padding:15px 0 25px}
-.timer-ring{
-  width:190px;height:190px;border-radius:50%;margin:0 auto 24px;
-  display:grid;place-items:center;position:relative;
-  background:conic-gradient(var(--gold) var(--progress,0%),#3a352b 0);
-}
-.timer-ring:before{
-  content:"";position:absolute;inset:7px;background:#151617;border-radius:50%;
-}
-.timer-content{position:relative;z-index:1}
-.timer-content small{display:block;color:var(--gold);letter-spacing:2px;font-size:9px}
-.timer-content strong{display:block;font:normal 31px Georgia,serif;margin-top:8px}
-.timer-caption{font-size:11px;color:var(--muted);line-height:1.7}
-.package{
-  padding:19px;border:1px solid #514936;background:#101112;
-  border-radius:9px;margin-bottom:13px;cursor:pointer;
-}
-.package.selected{border-color:var(--gold);background:#282319}
-.package-head{display:flex;justify-content:space-between;align-items:center}
-.package-name{font-size:12px;letter-spacing:2px;color:var(--light)}
-.price{font:normal 24px Georgia,serif}
-.package p{font-size:11px;color:var(--muted);margin-top:10px}
-.code-input{text-align:center;font-size:25px;letter-spacing:10px}
-.summary{
-  padding:17px;background:#101112;border:1px solid #49402f;
-  border-radius:8px;margin:18px 0;font-size:13px;line-height:2;
-}
-.summary span{color:var(--muted)}
-.note{font-size:10px;color:#99948b;line-height:1.6;text-align:center;margin-top:18px}
-footer{text-align:center;color:#77736b;font-size:10px;margin-top:24px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Morgan Wallen · Private Event Inquiry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #0a0a0a;
+            --black-rich: #0f0f0f;
+            --black-card: #141414;
+            --gold: #c6a55b;
+            --gold-light: #e2c98b;
+            --gold-dark: #9e7e3e;
+            --gold-glow: rgba(198, 165, 91, 0.25);
+            --text-primary: #f5f0e8;
+            --text-secondary: #b0a89a;
+            --error: #b45a4a;
+            --success: #5a9e6f;
+            --transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+
+        /* Subtle background texture */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 10%, rgba(198, 165, 91, 0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 90%, rgba(198, 165, 91, 0.03) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Page container */
+        .app-container {
+            width: 100%;
+            max-width: 560px;
+            padding: 24px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Page transitions */
+        .page {
+            display: none;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s var(--transition-smooth), transform 0.6s var(--transition-smooth);
+            width: 100%;
+        }
+
+        .page.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .page.entering {
+            animation: pageEnter 0.7s var(--transition-smooth) forwards;
+        }
+
+        @keyframes pageEnter {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Header / brand */
+        .brand {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .brand-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 13px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        .brand-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 12px auto 0;
+        }
+
+        /* Morgan Wallen photograph feature */
+        .artist-feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .artist-frame {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid rgba(198, 165, 91, 0.35);
+            box-shadow: 0 0 40px rgba(198, 165, 91, 0.12), 0 0 0 6px rgba(198, 165, 91, 0.06);
+            position: relative;
+            transition: transform 0.5s var(--transition-bounce), box-shadow 0.5s ease;
+        }
+
+        .artist-frame:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 60px rgba(198, 165, 91, 0.2), 0 0 0 6px rgba(198, 165, 91, 0.1);
+        }
+
+        .artist-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 20%;
+            filter: grayscale(30%) contrast(1.05) brightness(0.9);
+            transition: filter 0.6s ease;
+        }
+
+        .artist-frame:hover img {
+            filter: grayscale(0%) contrast(1.08) brightness(1);
+        }
+
+        .artist-name {
+            margin-top: 16px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+        }
+
+        .artist-name span {
+            color: var(--gold);
+        }
+
+        .artist-sub {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* Page title */
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(24px, 6vw, 30px);
+            font-weight: 500;
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .page-subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 300;
+            margin-bottom: 32px;
+            letter-spacing: 0.3px;
+            line-height: 1.5;
+        }
+
+        /* Form elements */
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-weight: 500;
+            opacity: 0.85;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(198, 165, 91, 0.18);
+            border-radius: 6px;
+            padding: 14px 16px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(198, 165, 91, 0.08);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(176, 168, 154, 0.4);
+            font-weight: 300;
+        }
+
+        .form-group select option {
+            background: var(--black-card);
+            color: var(--text-primary);
+        }
+
+        .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(0.7) sepia(0.4) saturate(3) hue-rotate(5deg);
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.35s var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+            color: var(--black);
+            box-shadow: 0 4px 20px rgba(198, 165, 91, 0.2);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 6px 30px rgba(198, 165, 91, 0.35);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 12px rgba(198, 165, 91, 0.25);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(198, 165, 91, 0.35);
+            color: var(--gold-light);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(198, 165, 91, 0.06);
+            border-color: var(--gold);
+        }
+
+        .btn:disabled {
+            pointer-events: none;
+        }
+
+        /* Circular loader */
+        .loader-overlay {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 0;
+            gap: 24px;
+        }
+
+        .loader-overlay.active {
+            display: flex;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .circular-loader {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        .circular-loader svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .circular-loader circle {
+            fill: none;
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+
+        .circular-loader .track {
+            stroke: rgba(198, 165, 91, 0.12);
+        }
+
+        .circular-loader .progress {
+            stroke: var(--gold);
+            stroke-dasharray: 226;
+            stroke-dashoffset: 226;
+            animation: loaderProgress 10s linear forwards;
+            filter: drop-shadow(0 0 6px rgba(198, 165, 91, 0.4));
+        }
+
+        .circular-loader.fast .progress {
+            animation-duration: 3s;
+        }
+
+        @keyframes loaderProgress {
+            from { stroke-dashoffset: 226; }
+            to { stroke-dashoffset: 0; }
+        }
+
+        .loader-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            letter-spacing: 1.5px;
+            font-weight: 300;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .loader-text .highlight {
+            color: var(--gold);
+            font-weight: 400;
+        }
+
+        /* Package cards */
+        .package-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        @media (max-width: 440px) {
+            .package-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .package-card {
+            background: var(--black-card);
+            border: 1px solid rgba(198, 165, 91, 0.15);
+            border-radius: 10px;
+            padding: 28px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(198, 165, 91, 0.06) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .package-card:hover {
+            border-color: rgba(198, 165, 91, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .package-card:hover::before {
+            opacity: 1;
+        }
+
+        .package-card.selected {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 1px var(--gold), 0 12px 40px rgba(198, 165, 91, 0.15);
+            background: linear-gradient(180deg, rgba(198, 165, 91, 0.08) 0%, var(--black-card) 100%);
+        }
+
+        .package-card.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .package-tier {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .package-price {
+            font-size: 24px;
+            font-weight: 300;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .package-price small {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .package-features {
+            list-style: none;
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 2;
+            font-weight: 300;
+        }
+
+        .package-features li::before {
+            content: '·';
+            color: var(--gold);
+            margin-right: 6px;
+            font-weight: 600;
+        }
+
+        /* Countdown */
+        .countdown-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .countdown-svg-wrap {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin-bottom: 28px;
+        }
+
+        .countdown-svg-wrap svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .countdown-svg-wrap circle {
+            fill: none;
+            stroke-width: 4;
+            stroke-linecap: round;
+        }
+
+        .countdown-svg-wrap .track {
+            stroke: rgba(198, 165, 91, 0.1);
+        }
+
+        .countdown-svg-wrap .progress {
+            stroke: var(--gold);
+            stroke-dasharray: 565;
+            stroke-dashoffset: 0;
+            filter: drop-shadow(0 0 8px rgba(198, 165, 91, 0.3));
+            transition: stroke-dashoffset 1s linear;
+        }
+
+        .countdown-center {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .countdown-time {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: 500;
+            color: var(--text-primary);
+            letter-spacing: 2px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .countdown-label {
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        .countdown-meta {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .countdown-meta .gold {
+            color: var(--gold-light);
+        }
+
+        /* Code input */
+        .code-input-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .code-input-group input {
+            width: 50px;
+            height: 60px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(198, 165, 91, 0.2);
+            border-radius: 8px;
+            color: var(--gold-light);
+            outline: none;
+            transition: all 0.3s ease;
+            caret-color: var(--gold);
+        }
+
+        .code-input-group input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(198, 165, 91, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .code-input-group input.filled {
+            border-color: rgba(198, 165, 91, 0.5);
+        }
+
+        @media (max-width: 400px) {
+            .code-input-group input {
+                width: 42px;
+                height: 52px;
+                font-size: 20px;
+            }
+        }
+
+        /* Acceptance message */
+        .acceptance-card {
+            background: linear-gradient(180deg, rgba(198, 165, 91, 0.06) 0%, var(--black-card) 100%);
+            border: 1px solid rgba(198, 165, 91, 0.2);
+            border-radius: 12px;
+            padding: 32px 24px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .acceptance-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: rgba(198, 165, 91, 0.12);
+            border: 1px solid rgba(198, 165, 91, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: var(--gold);
+        }
+
+        .acceptance-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--gold-light);
+            margin-bottom: 16px;
+        }
+
+        .acceptance-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 12px;
+        }
+
+        .acceptance-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .acceptance-card strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Payment layout */
+        .payment-summary {
+            background: var(--black-card);
+            border: 1px solid rgba(198, 165, 91, 0.15);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .payment-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(198, 165, 91, 0.08);
+            font-size: 14px;
+        }
+
+        .payment-row:last-child {
+            border-bottom: none;
+        }
+
+        .payment-row .label {
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .payment-row .value {
+            color: var(--text-primary);
+            font-weight: 400;
+            text-align: right;
+        }
+
+        .payment-row.total {
+            padding-top: 16px;
+            margin-top: 4px;
+            border-top: 1px solid rgba(198, 165, 91, 0.25);
+            border-bottom: none;
+        }
+
+        .payment-row.total .label {
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
+
+        .payment-row.total .value {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--gold-light);
+            font-weight: 500;
+        }
+
+        /* Status messages */
+        .status-message {
+            display: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            text-align: center;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .status-message.error {
+            display: block;
+            background: rgba(180, 90, 74, 0.12);
+            border: 1px solid rgba(180, 90, 74, 0.3);
+            color: #e0a89a;
+        }
+
+        .status-message.success {
+            display: block;
+            background: rgba(90, 158, 111, 0.12);
+            border: 1px solid rgba(90, 158, 111, 0.3);
+            color: #9ad4ab;
+        }
+
+        /* Confirmation reveal */
+        .confirmation-reveal {
+            display: none;
+            background: linear-gradient(180deg, rgba(198, 165, 91, 0.08) 0%, var(--black-card) 100%);
+            border: 1px solid rgba(198, 165, 91, 0.3);
+            border-radius: 12px;
+            padding: 28px 24px;
+            margin-top: 24px;
+            animation: revealUp 0.6s var(--transition-smooth) forwards;
+        }
+
+        .confirmation-reveal.visible {
+            display: block;
+        }
+
+        @keyframes revealUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .confirmation-reveal h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(198, 165, 91, 0.1);
+            font-size: 14px;
+        }
+
+        .detail-item:last-child {
+            border-bottom: none;
+        }
+
+        .detail-item .dt {
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        .detail-item .dd {
+            color: var(--text-primary);
+            font-weight: 400;
+            text-align: right;
+        }
+
+        /* Spacer */
+        .spacer {
+            height: 8px;
+        }
+
+        .spacer-lg {
+            height: 16px;
+        }
+
+        /* Hidden utility */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Pulse animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* Success checkmark */
+        .checkmark {
+            display: inline-block;
+            color: var(--success);
+            font-size: 18px;
+            margin-right: 6px;
+        }
+
+        /* Smooth scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold-dark);
+            border-radius: 2px;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<header>
-  <div class="brand">PRIVATE EXPERIENCE PORTAL</div>
-  <div class="line"></div>
-  <h1>Event Inquiry</h1>
-  <p>A refined experience, from the first details onward.</p>
-</header>
 
-<div class="hero">
-  <img src="morgan-wallen.jpg" alt="Featured artist photograph">
-  <div class="hero-caption">
-    <small>FEATURED ARTIST</small>
-    <h2>Music & Memories</h2>
-  </div>
-</div>
+<div class="app-container" id="app">
 
-<div class="panel">
-  <div class="steps" id="progress">
-    <span class="active"></span><span></span><span></span>
-  </div>
-
-  <section id="stage1">
-    <div class="eyebrow">01 / PERSONAL DETAILS</div>
-    <h3>Let's Get Started</h3>
-    <p class="desc">Please provide your contact information to begin.</p>
-    <div class="field">
-      <label>Full Name</label>
-      <input id="name" placeholder="Enter your full name">
-    </div>
-    <div class="field">
-      <label>Phone Number</label>
-      <input id="phone" type="tel" placeholder="Enter phone number">
-    </div>
-    <button onclick="continueFromOne()">CONTINUE</button>
-  </section>
-
-  <section id="stage2" class="hidden">
-    <div class="eyebrow">02 / EVENT PREFERENCES</div>
-    <h3>Event Details</h3>
-    <p class="desc">Select your preferred date and provide the event location.</p>
-    <div class="field">
-      <label>Preferred Date</label>
-      <input id="date" type="date" min="2027-01-19" max="2027-03-04">
-    </div>
-    <div class="field">
-      <label>Country</label>
-      <input id="country" placeholder="Enter country">
-    </div>
-    <div class="field">
-      <label>City</label>
-      <input id="city" placeholder="Enter city">
-    </div>
-    <div class="field">
-      <label>Preferred Venue / Location</label>
-      <input id="venue" placeholder="Enter preferred venue">
-    </div>
-    <div class="field">
-      <label>Number of Guests</label>
-      <select id="guests">
-        <option value="">Select guest count</option>
-        <option>1</option><option>2</option><option>3</option>
-        <option>4</option><option>5</option><option>6</option>
-      </select>
-    </div>
-    <button onclick="continueFromTwo()">CONTINUE</button>
-    <button class="secondary" onclick="showStage(1)">BACK</button>
-  </section>
-
-  <section id="stage3" class="hidden">
-    <div class="eyebrow">03 / PACKAGE PREFERENCE</div>
-    <h3>Select Your Package</h3>
-    <p class="desc">Choose the package associated with your inquiry.</p>
-    <div class="package" onclick="choosePackage('STANDARD',this)">
-      <div class="package-head">
-        <div class="package-name">STANDARD</div>
-        <div class="price">$25,000</div>
-      </div>
-      <p>Standard package selection.</p>
-    </div>
-    <div class="package" onclick="choosePackage('VIP',this)">
-      <div class="package-head">
-        <div class="package-name">VIP</div>
-        <div class="price">$50,000</div>
-      </div>
-      <p>VIP package selection.</p>
-    </div>
-    <button onclick="submitInquiry()">SUBMIT INQUIRY</button>
-    <button class="secondary" onclick="showStage(2)">BACK</button>
-  </section>
-
-  <section id="loading" class="hidden loader">
-    <div class="spinner"></div>
-    <h3 id="loadingTitle">Please Wait</h3>
-    <p id="loadingText">Preparing the next section...</p>
-  </section>
-
-  <section id="review" class="hidden">
-    <div class="eyebrow">INQUIRY STATUS</div>
-    <h3>Review Period</h3>
-    <p class="desc">The role-play review countdown is displayed below.</p>
-    <div class="timer-wrap">
-      <div class="timer-ring" id="timerRing">
-        <div class="timer-content">
-          <small>TIME REMAINING</small>
-          <strong id="timer">12:00:00</strong>
+    <!-- ===== PAGE 1: PERSONAL INFORMATION ===== -->
+    <div class="page active" id="page1">
+        <div class="brand">
+            <div class="brand-mark">Private Inquiry</div>
+            <div class="brand-divider"></div>
         </div>
-      </div>
-      <div class="timer-caption">12-hour countdown sequence</div>
-    </div>
-    <p class="note">This is a fictional countdown for the role-play experience.</p>
-    <button onclick="showCodeStage()">CONTINUE TO ROLE-PLAY VERIFICATION</button>
-  </section>
 
-  <section id="codeStage" class="hidden">
-    <div class="eyebrow">VERIFICATION EXPERIENCE</div>
-    <h3>Enter Your Code</h3>
-    <p class="desc">Enter the six-digit role-play code to continue.</p>
-    <div class="field">
-      <label>Six-Digit Code</label>
-      <input id="verificationCode" class="code-input" maxlength="6"
-             inputmode="numeric" placeholder="••••••">
-    </div>
-    <button onclick="verifyCode()">VERIFY CODE</button>
-  </section>
+        <div class="artist-feature">
+            <div class="artist-frame">
+                <img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=400&h=400&fit=crop&crop=face" alt="Morgan Wallen" loading="eager">
+            </div>
+            <div class="artist-name">Morgan <span>Wallen</span></div>
+            <div class="artist-sub">Private Event · 2027</div>
+        </div>
 
-  <section id="paymentStage" class="hidden">
-    <div class="eyebrow">FINAL STAGE</div>
-    <h3>Proceed to Payment</h3>
-    <p class="desc">The role-play verification sequence is complete.</p>
-    <div class="summary">
-      <div><span>Selected package:</span> <b id="finalPackage"></b></div>
-      <div><span>Selected date:</span> <b id="finalDate"></b></div>
-      <div><span>Guest count:</span> <b id="finalGuests"></b></div>
-    </div>
-    <p class="note">Payment is not enabled in this fictional role-play interface.</p>
-    <button onclick="alert('Role-play sequence complete.')">PROCEED</button>
-  </section>
-</div>
+        <h1 class="page-title">Personal Information</h1>
+        <p class="page-subtitle">Please provide your details to begin the inquiry process.</p>
 
-<footer>PRIVATE EXPERIENCE PORTAL · ROLE-PLAY EXPERIENCE</footer>
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name" autocomplete="name">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
+        </div>
+
+        <div class="status-message error" id="page1Error"></div>
+
+        <button class="btn btn-primary" id="page1Btn" onclick="handlePage1()">Continue</button>
+
+        <div class="loader-overlay" id="page1Loader">
+            <div class="circular-loader">
+                <svg viewBox="0 0 80 80">
+                    <circle class="track" cx="40" cy="40" r="36"></circle>
+                    <circle class="progress" cx="40" cy="40" r="36"></circle>
+                </svg>
+            </div>
+            <div class="loader-text">Verifying your information<span class="pulse">...</span></div>
+        </div>
+    </div>
+
+    <!-- ===== PAGE 2: EVENT INFORMATION ===== -->
+    <div class="page" id="page2">
+        <div class="brand">
+            <div class="brand-mark">Private Inquiry</div>
+            <div class="brand-divider"></div>
+        </div>
+
+        <h1 class="page-title">Event Information</h1>
+        <p class="page-subtitle">Tell us about your event. All dates are within the approved range.</p>
+
+        <div class="form-group">
+            <label for="eventDate">Preferred Date</label>
+            <input type="date" id="eventDate" min="2027-01-19" max="2027-03-04">
+        </div>
+
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" id="country" placeholder="United States" autocomplete="country-name">
+        </div>
+
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" placeholder="Nashville" autocomplete="address-level2">
+        </div>
+
+        <div class="form-group">
+            <label for="venue">Preferred Venue / Location</label>
+            <input type="text" id="venue" placeholder="e.g., Bridgestone Arena">
+        </div>
+
+        <div class="form-group">
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" placeholder="e.g., 500" min="1">
+        </div>
+
+        <div class="status-message error" id="page2Error"></div>
+
+        <button class="btn btn-primary" id="page2Btn" onclick="handlePage2()">Continue</button>
+
+        <div class="loader-overlay" id="page2Loader">
+            <div class="circular-loader fast">
+                <svg viewBox="0 0 80 80">
+                    <circle class="track" cx="40" cy="40" r="36"></circle>
+                    <circle class="progress" cx="40" cy="40" r="36"></circle>
+                </svg>
+            </div>
+            <div class="loader-text">Please wait while we <span class="highlight">reconnect.</span></div>
+        </div>
+    </div>
+
+    <!-- ===== PAGE 3: PACKAGE SELECTION ===== -->
+    <div class="page" id="page3">
+        <div class="brand">
+            <div class="brand-mark">Private Inquiry</div>
+            <div class="brand-divider"></div>
+        </div>
+
+        <h1 class="page-title">Select Your Package</h1>
+        <p class="page-subtitle">Choose the experience that suits your event.</p>
+
+        <div class="package-grid">
+            <div class="package-card" id="pkgStandard" onclick="selectPackage('standard')">
+                <div class="package-tier">Standard</div>
+                <div class="package-price">$25,000</div>
+                <ul class="package-features">
+                    <li>Full performance</li>
+                    <li>2-hour set</li>
+                    <li>Meet & greet</li>
+                    <li>Standard sound</li>
+                </ul>
+            </div>
+
+            <div class="package-card" id="pkgVip" onclick="selectPackage('vip')">
+                <div class="package-tier">VIP</div>
+                <div class="package-price">$50,000</div>
+                <ul class="package-features">
+                    <li>Full performance</li>
+                    <li>3-hour set</li>
+                    <li>Premium meet & greet</li>
+                    <li>Full production</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="status-message error" id="page3Error"></div>
+
+        <button class="btn btn-primary" id="page3Btn" onclick="handlePage3()" disabled>Continue</button>
+    </div>
+
+    <!-- ===== PAGE 4: COUNTDOWN ===== -->
+    <div class="page" id="page4">
+        <div class="brand">
+            <div class="brand-mark">Private Inquiry</div>
+            <div class="brand-divider"></div>
+        </div>
+
+        <h1 class="page-title">Review in Progress</h1>
+        <p class="page-subtitle">Your inquiry is being carefully reviewed by our team.</p>
+
+        <div class="countdown-wrap">
+            <div class="countdown-svg-wrap">
+                <svg viewBox="0 0 200 200">
+                    <circle class="track" cx="100" cy="100" r="90"></circle>
+                    <circle class="progress" cx="100" cy="100" r="90" id="countdownProgress"></circle>
+                </svg>
+                <div class="countdown-center">
+                    <div class="countdown-time" id="countdownTime">12:00:00</div>
+                    <div class="countdown-label">Remaining</div>
+                </div>
+            </div>
+            <div class="countdown-meta">
+                Please remain on this page.<br>
+                The review process will conclude shortly.<br>
+                <span class="gold" id="countdownHint">Do not refresh.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PAGE 5: ACCEPTANCE ===== -->
+    <div class="page" id="page5">
+        <div class="brand">
+            <div class="brand-mark">Private Inquiry</div>
+            <div class="brand-divider"></div>
+        </div>
+
+        <h1 class="page-title">Congratulations</h1>
+        <p class="page-subtitle">Your event inquiry has been accepted.</p>
+
+        <div class="acceptance-card">
+            <div class="acceptance-icon">✦</div>
+            <h3>You Have Been Accepted</h3>
+            <p>We are pleased to confirm that your private event inquiry has been <strong>approved</strong> by our review team.</p>
+            <p>To secure your date and proceed with booking, a <strong>deposit payment</strong> is required. Full payment instructions will be provided on the next screen.</p>
+            <p>Your event details have been reserved temporarily. Please complete the next steps promptly to avoid release of your date.</p>
+        </div>
+
+        <button class="btn btn-primary" onclick="goToPage(6)">Continue to Verification</button>
+    </div>
+
+    <!-- ===== PAGE 6: EMAIL CODE ===== -->
+    <div class="page" id="page6">
+        <div class="brand">
+            <div class="brand-mark">Private Inquiry</div>
+            <div class="brand-divider"></div>
+        </div>
+
+        <h1 class="page-title">Email Verification</h1>
+        <p class="page-subtitle">Enter the 6-digit code sent to your email to continue.</p>
+
+        <div class="code-input-group" id="codeGroup">
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="0" autocomplete="one-time-code">
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="1">
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="2">
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="3">
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="4">
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]" data-index="5">
+        </div>
+
+        <div class="status-message error" id="page6Error"></div>
+
+        <button class="btn btn-primary" id="page6Btn" onclick="handlePage6()">Continue</button>
+    </div>
+
+    <!-- ===== PAGE 7: PAYMENT ===== -->
+    <div class="page" id="page7">
+        <div class="brand">
+            <div class="brand-mark">Private Inquiry</div>
+            <div class="brand-divider"></div>
+        </div>
+
+        <h1 class="page-title">Payment Confirmation</h1>
+        <p class="page-subtitle">Review your booking details and confirm payment.</p>
+
+        <div class="payment-summary">
+            <div class="payment-row">
+                <span class="label">Package</span>
+                <span class="value" id="payPackage">—</span>
+            </div>
+            <div class="payment-row">
+                <span class="label">Preferred Date</span>
+                <span class="value" id="payDate">—</span>
+            </div>
+            <div class="payment-row">
+                <span class="label">Venue</span>
+                <span class="value" id="payVenue">—</span>
+            </div>
+            <div class="payment-row">
+                <span class="label">Location</span>
+                <span class="value" id="payLocation">—</span>
+            </div>
+            <div class="payment-row">
+                <span class="label">Guests</span>
+                <span class="value" id="payGuests">—</span>
+            </div>
+            <div class="payment-row total">
+                <span class="label">Total Due</span>
+                <span class="value" id="payTotal">—</span>
+            </div>
+        </div>
+
+        <div class="status-message error" id="page7Error"></div>
+
+        <button class="btn btn-primary" id="payBtn" onclick="handlePayment()">Confirm Payment</button>
+
+        <div class="loader-overlay" id="paymentLoader">
+            <div class="circular-loader fast">
+                <svg viewBox="0 0 80 80">
+                    <circle class="track" cx="40" cy="40" r="36"></circle>
+                    <circle class="progress" cx="40" cy="40" r="36"></circle>
+                </svg>
+            </div>
+            <div class="loader-text">Processing payment<span class="pulse">...</span></div>
+        </div>
+
+        <div class="confirmation-reveal" id="confirmationReveal">
+            <h3>✦ Payment Confirmed</h3>
+            <div class="detail-item">
+                <span class="dt">Venue</span>
+                <span class="dd" id="confVenue">—</span>
+            </div>
+            <div class="detail-item">
+                <span class="dt">Date</span>
+                <span class="dd" id="confDate">—</span>
+            </div>
+            <div class="detail-item">
+                <span class="dt">Package</span>
+                <span class="dd" id="confPackage">—</span>
+            </div>
+            <div class="detail-item">
+                <span class="dt">Status</span>
+                <span class="dd" style="color: var(--success);">Confirmed</span>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script>
-let selectedPackage = "";
-let countdownSeconds = 12 * 60 * 60;
-let timerInterval = null;
-let reviewStarted = false;
+    // ============================================================
+    // APPLICATION STATE
+    // ============================================================
+    const state = {
+        fullName: '',
+        phone: '',
+        eventDate: '',
+        country: '',
+        city: '',
+        venue: '',
+        guests: '',
+        package: '',
+        packagePrice: 0,
+        reviewAccepted: false
+    };
 
-function hideAll(){
-  ["stage1","stage2","stage3","loading","review","codeStage","paymentStage"]
-  .forEach(id=>document.getElementById(id).classList.add("hidden"));
-}
+    // Countdown state
+    let countdownInterval = null;
+    const COUNTDOWN_DURATION = 12 * 60 * 60; // 12 hours in seconds
+    let countdownRemaining = COUNTDOWN_DURATION;
 
-function showStage(n){
-  hideAll();
-  document.getElementById("stage"+n).classList.remove("hidden");
-  const bars=document.querySelectorAll("#progress span");
-  bars.forEach((bar,i)=>bar.classList.toggle("active",i<n));
-  document.getElementById("progress").classList.remove("hidden");
-}
+    // ============================================================
+    // PAGE NAVIGATION
+    // ============================================================
+    function goToPage(n) {
+        // Hide all pages
+        document.querySelectorAll('.page').forEach(p => {
+            p.classList.remove('active', 'entering');
+        });
 
-function animateTo(next,title,message,duration=2500){
-  document.getElementById("progress").classList.add("hidden");
-  hideAll();
-  document.getElementById("loading").classList.remove("hidden");
-  document.getElementById("loadingTitle").textContent=title;
-  document.getElementById("loadingText").textContent=message;
-  setTimeout(()=>{
-    hideAll();
-    document.getElementById(next).classList.remove("hidden");
-    if(next==="review") startCountdown();
-  },duration);
-}
+        const target = document.getElementById('page' + n);
+        if (target) {
+            target.classList.add('active');
+            // Force reflow for animation
+            void target.offsetWidth;
+            target.classList.add('entering');
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
 
-function continueFromOne(){
-  if(!name.value.trim() || !phone.value.trim()){
-    alert("Please enter your name and phone number.");
-    return;
-  }
-  animateTo("stage2","Please Wait","Preparing the next section...",10000);
-}
-
-function continueFromTwo(){
-  const required=["date","country","city","venue","guests"];
-  if(required.some(id=>!document.getElementById(id).value.trim())){
-    alert("Please complete all event details.");
-    return;
-  }
-  animateTo("stage3","Please Wait","Please wait while we reconnect.",3000);
-}
-
-function choosePackage(name,element){
-  selectedPackage=name;
-  document.querySelectorAll(".package").forEach(p=>p.classList.remove("selected"));
-  element.classList.add("selected");
-}
-
-function submitInquiry(){
-  if(!selectedPackage){
-    alert("Please select a package.");
-    return;
-  }
-  animateTo("review","Inquiry Submitted","Preparing the review countdown...",3000);
-}
-
-function startCountdown(){
-  if(reviewStarted)return;
-  reviewStarted=true;
-  updateTimer();
-  timerInterval=setInterval(()=>{
-    if(countdownSeconds>0){
-      countdownSeconds--;
-      updateTimer();
-    }else{
-      clearInterval(timerInterval);
-      document.getElementById("timer").textContent="COMPLETE";
+        // Trigger page-specific setup
+        if (n === 4) {
+            startCountdown();
+        }
+        if (n === 7) {
+            populatePaymentSummary();
+        }
     }
-  },1000);
-}
 
-function updateTimer(){
-  let h=Math.floor(countdownSeconds/3600);
-  let m=Math.floor((countdownSeconds%3600)/60);
-  let s=countdownSeconds%60;
-  document.getElementById("timer").textContent=
-    [h,m,s].map(v=>String(v).padStart(2,"0")).join(":");
-  let percent=((43200-countdownSeconds)/43200)*100;
-  document.getElementById("timerRing").style.setProperty("--progress",percent+"%");
-}
+    // ============================================================
+    // PAGE 1 — PERSONAL INFO
+    // ============================================================
+    function handlePage1() {
+        const name = document.getElementById('fullName').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const errorEl = document.getElementById('page1Error');
 
-function showCodeStage(){
-  animateTo("codeStage","Verification","Preparing the role-play verification stage...",1800);
-}
+        // Validation
+        if (!name) {
+            errorEl.textContent = 'Please enter your full name.';
+            return;
+        }
+        if (!phone || phone.replace(/\D/g, '').length < 7) {
+            errorEl.textContent = 'Please enter a valid phone number.';
+            return;
+        }
 
-function verifyCode(){
-  const code=document.getElementById("verificationCode").value.trim();
-  if(code!=="817660"){
-    alert("Please enter the correct six-digit role-play code.");
-    return;
-  }
-  document.getElementById("finalPackage").textContent=
-    selectedPackage==="VIP"?"VIP — $50,000":"STANDARD — $25,000";
-  document.getElementById("finalDate").textContent=
-    document.getElementById("date").value;
-  document.getElementById("finalGuests").textContent=
-    document.getElementById("guests").value;
-  animateTo("paymentStage","Code Accepted","Opening the final role-play stage...",2000);
-}
+        errorEl.textContent = '';
+        state.fullName = name;
+        state.phone = phone;
+
+        // Hide button, show loader
+        document.getElementById('page1Btn').style.display = 'none';
+        document.getElementById('page1Loader').classList.add('active');
+
+        // 10-second circular loading animation before proceeding
+        setTimeout(() => {
+            document.getElementById('page1Loader').classList.remove('active');
+            document.getElementById('page1Btn').style.display = 'flex';
+            goToPage(2);
+        }, 10000);
+    }
+
+    // ============================================================
+    // PAGE 2 — EVENT INFO
+    // ============================================================
+    function handlePage2() {
+        const date = document.getElementById('eventDate').value;
+        const country = document.getElementById('country').value.trim();
+        const city = document.getElementById('city').value.trim();
+        const venue = document.getElementById('venue').value.trim();
+        const guests = document.getElementById('guests').value.trim();
+        const errorEl = document.getElementById('page2Error');
+
+        // Validation
+        if (!date) {
+            errorEl.textContent = 'Please select a preferred date.';
+            return;
+        }
+        // Date range check
+        const selectedDate = new Date(date + 'T00:00:00');
+        const minDate = new Date('2027-01-19T00:00:00');
+        const maxDate = new Date('2027-03-04T00:00:00');
+        if (selectedDate < minDate || selectedDate > maxDate) {
+            errorEl.textContent = 'Please select a date between January 19 and March 4, 2027.';
+            return;
+        }
+        if (!country) {
+            errorEl.textContent = 'Please enter a country.';
+            return;
+        }
+        if (!city) {
+            errorEl.textContent = 'Please enter a city.';
+            return;
+        }
+        if (!venue) {
+            errorEl.textContent = 'Please enter a preferred venue or location.';
+            return;
+        }
+        if (!guests || parseInt(guests) < 1) {
+            errorEl.textContent = 'Please enter a valid number of guests.';
+            return;
+        }
+
+        errorEl.textContent = '';
+        state.eventDate = date;
+        state.country = country;
+        state.city = city;
+        state.venue = venue;
+        state.guests = guests;
+
+        // Hide button, show loader
+        document.getElementById('page2Btn').style.display = 'none';
+        document.getElementById('page2Loader').classList.add('active');
+
+        // "Please wait while we reconnect." — 3-second loading
+        setTimeout(() => {
+            document.getElementById('page2Loader').classList.remove('active');
+            document.getElementById('page2Btn').style.display = 'flex';
+            goToPage(3);
+        }, 3000);
+    }
+
+    // ============================================================
+    // PAGE 3 — PACKAGE SELECTION
+    // ============================================================
+    function selectPackage(pkg) {
+        // Clear selection
+        document.querySelectorAll('.package-card').forEach(c => c.classList.remove('selected'));
+        document.getElementById('page3Error').textContent = '';
+
+        if (pkg === 'standard') {
+            document.getElementById('pkgStandard').classList.add('selected');
+            state.package = 'Standard';
+            state.packagePrice = 25000;
+        } else {
+            document.getElementById('pkgVip').classList.add('selected');
+            state.package = 'VIP';
+            state.packagePrice = 50000;
+        }
+
+        document.getElementById('page3Btn').disabled = false;
+    }
+
+    function handlePage3() {
+        if (!state.package) {
+            document.getElementById('page3Error').textContent = 'Please select a package.';
+            return;
+        }
+        document.getElementById('page3Error').textContent = '';
+        goToPage(4);
+    }
+
+    // ============================================================
+    // PAGE 4 — COUNTDOWN (12 hours)
+    // ============================================================
+    function startCountdown() {
+        // Reset countdown
+        countdownRemaining = COUNTDOWN_DURATION;
+        if (countdownInterval) clearInterval(countdownInterval);
+
+        const timeEl = document.getElementById('countdownTime');
+        const progressEl = document.getElementById('countdownProgress');
+        const hintEl = document.getElementById('countdownHint');
+
+        // Circumference = 2 * PI * 90 = 565.48
+        const circumference = 565.48;
+
+        function updateDisplay() {
+            const hrs = Math.floor(countdownRemaining / 3600);
+            const mins = Math.floor((countdownRemaining % 3600) / 60);
+            const secs = countdownRemaining % 60;
+
+            timeEl.textContent =
+                String(hrs).padStart(2, '0') + ':' +
+                String(mins).padStart(2, '0') + ':' +
+                String(secs).padStart(2, '0');
+
+            // Progress: 0 at start (full circle visible), 1 at end (empty)
+            const progress = 1 - (countdownRemaining / COUNTDOWN_DURATION);
+            const offset = circumference * progress;
+            progressEl.style.strokeDashoffset = offset;
+
+            // Change hint near the end
+            if (countdownRemaining <= 5) {
+                hintEl.textContent = 'Finalizing...';
+            }
+        }
+
+        updateDisplay();
+
+        countdownInterval = setInterval(() => {
+            countdownRemaining--;
+
+            if (countdownRemaining <= 0) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+                countdownRemaining = 0;
+                updateDisplay();
+
+                // When countdown finishes, go to acceptance page
+                // The acceptance is based on the review result (always accepted for this workflow)
+                setTimeout(() => {
+                    goToPage(5);
+                }, 800);
+            } else {
+                updateDisplay();
+            }
+        }, 1000);
+    }
+
+    // ============================================================
+    // PAGE 6 — EMAIL CODE
+    // ============================================================
+    // Set up code input auto-advance
+    (function setupCodeInputs() {
+        const inputs = document.querySelectorAll('#codeGroup input');
+        inputs.forEach((input, idx) => {
+            input.addEventListener('input', (e) => {
+                // Only allow digits
+                e.target.value = e.target.value.replace(/[^0-9]/g, '');
+
+                if (e.target.value) {
+                    e.target.classList.add('filled');
+                    // Auto-advance
+                    if (idx < inputs.length - 1) {
+                        inputs[idx + 1].focus();
+                    }
+                } else {
+                    e.target.classList.remove('filled');
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                // Backspace to previous
+                if (e.key === 'Backspace' && !e.target.value && idx > 0) {
+                    inputs[idx - 1].focus();
+                    inputs[idx - 1].value = '';
+                    inputs[idx - 1].classList.remove('filled');
+                }
+                // Arrow navigation
+                if (e.key === 'ArrowLeft' && idx > 0) {
+                    e.preventDefault();
+                    inputs[idx - 1].focus();
+                }
+                if (e.key === 'ArrowRight' && idx < inputs.length - 1) {
+                    e.preventDefault();
+                    inputs[idx + 1].focus();
+                }
+            });
+
+            // Handle paste
+            input.addEventListener('paste', (e) => {
+                e.preventDefault();
+                const paste = (e.clipboardData || window.clipboardData).getData('text');
+                const digits = paste.replace(/\D/g, '').slice(0, 6);
+                if (digits.length === 6) {
+                    inputs.forEach((inp, i) => {
+                        inp.value = digits[i] || '';
+                        if (inp.value) inp.classList.add('filled');
+                    });
+                    inputs[5].focus();
+                }
+            });
+        });
+    })();
+
+    function getCodeValue() {
+        const inputs = document.querySelectorAll('#codeGroup input');
+        let code = '';
+        inputs.forEach(inp => code += inp.value);
+        return code;
+    }
+
+    function handlePage6() {
+        const code = getCodeValue();
+        const errorEl = document.getElementById('page6Error');
+
+        if (code.length !== 6) {
+            errorEl.textContent = 'Please enter the complete 6-digit code.';
+            return;
+        }
+
+        // Code specified for test workflow: 817660
+        if (code !== '817660') {
+            errorEl.textContent = 'Invalid code. Please check your email and try again.';
+            return;
+        }
+
+        errorEl.textContent = '';
+        goToPage(7);
+    }
+
+    // ============================================================
+    // PAGE 7 — PAYMENT
+    // ============================================================
+    function populatePaymentSummary() {
+        document.getElementById('payPackage').textContent = state.package || '—';
+        document.getElementById('payDate').textContent = formatDate(state.eventDate) || '—';
+        document.getElementById('payVenue').textContent = state.venue || '—';
+        document.getElementById('payLocation').textContent =
+            (state.city && state.country) ? state.city + ', ' + state.country : '—';
+        document.getElementById('payGuests').textContent = state.guests || '—';
+
+        const formattedPrice = state.packagePrice
+            ? '$' + state.packagePrice.toLocaleString('en-US')
+            : '—';
+        document.getElementById('payTotal').textContent = formattedPrice;
+    }
+
+    function formatDate(dateStr) {
+        if (!dateStr) return '';
+        const d = new Date(dateStr + 'T00:00:00');
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return d.toLocaleDateString('en-US', options);
+    }
+
+    function handlePayment() {
+        // Hide button, show loader
+        document.getElementById('payBtn').style.display = 'none';
+        document.getElementById('paymentLoader').classList.add('active');
+        document.getElementById('page7Error').textContent = '';
+
+        // Simulate payment processing — 3 second loading
+        setTimeout(() => {
+            document.getElementById('paymentLoader').classList.remove('active');
+            document.getElementById('payBtn').style.display = 'flex';
+
+            // Reveal confirmation with venue and date details
+            document.getElementById('confVenue').textContent = state.venue || '—';
+            document.getElementById('confDate').textContent = formatDate(state.eventDate) || '—';
+            document.getElementById('confPackage').textContent = state.package || '—';
+
+            const reveal = document.getElementById('confirmationReveal');
+            reveal.classList.add('visible');
+
+            // Scroll to confirmation
+            setTimeout(() => {
+                reveal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+
+            // Disable payment button to prevent double-charge
+            document.getElementById('payBtn').disabled = true;
+            document.getElementById('payBtn').textContent = 'Payment Complete';
+
+        }, 3000);
+    }
+
+    // ============================================================
+    // INITIALIZATION
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', () => {
+        // Set today's min/max on date input (already set in HTML, but ensure)
+        const dateInput = document.getElementById('eventDate');
+        dateInput.min = '2027-01-19';
+        dateInput.max = '2027-03-04';
+
+        // Pre-fill test values? No — leave blank for real experience.
+
+        // Focus first input on page 1
+        document.getElementById('fullName').focus();
+    });
+
+    // ============================================================
+    // ENTER KEY SUPPORT
+    // ============================================================
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            const activePage = document.querySelector('.page.active');
+            if (!activePage) return;
+            const id = activePage.id;
+
+            if (id === 'page1') { e.preventDefault(); handlePage1(); }
+            if (id === 'page2') { e.preventDefault(); handlePage2(); }
+            if (id === 'page3') { e.preventDefault(); handlePage3(); }
+            if (id === 'page6') { e.preventDefault(); handlePage6(); }
+            if (id === 'page7') { e.preventDefault(); handlePayment(); }
+        }
+    });
+
+    // Prevent form submission on enter in inputs
+    document.querySelectorAll('input').forEach(inp => {
+        inp.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                // Trigger the appropriate button
+                const page = inp.closest('.page');
+                if (!page) return;
+                if (page.id === 'page1') handlePage1();
+                if (page.id === 'page2') handlePage2();
+                if (page.id === 'page6') handlePage6();
+            }
+        });
+    });
+
+    // ============================================================
+    // CLEANUP ON PAGE UNLOAD
+    // ============================================================
+    window.addEventListener('beforeunload', () => {
+        if (countdownInterval) clearInterval(countdownInterval);
+    });
+
 </script>
+
 </body>
 </html>
