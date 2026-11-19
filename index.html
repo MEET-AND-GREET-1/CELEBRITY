@@ -4,179 +4,473 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Morgan Wallen | Fan Experience Concept</title>
+<title>Wallen Experiences | Fan Experience Portal</title>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root {
- --gold:#c7a46b;
- --black:#10100f;
- --panel:#191918;
- --muted:#a6a6a1;
- --white:#fff;
+  --gold: #c6a36a;
+  --black: #10100f;
+  --panel: #191918;
+  --muted: #aaa;
+  --white: #fff;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--black);color:white;font-family:'DM Sans',sans-serif}
-a{text-decoration:none;color:inherit}
-button,input,select{font:inherit}
-.notice{
- background:#302719;color:#e7d2ad;text-align:center;
- padding:10px;font-size:10px;letter-spacing:1px;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-header{
- height:82px;padding:0 7%;display:flex;align-items:center;
- justify-content:space-between;background:#10100f;
- border-bottom:1px solid #30302c;position:sticky;top:0;z-index:10;
+
+body {
+  background: var(--black);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
 }
-.logo{font-family:'Playfair Display';font-size:23px;letter-spacing:2px}
-.logo span{color:var(--gold)}
-nav{display:flex;align-items:center;gap:27px}
-nav a{font-size:11px;color:#ddd;letter-spacing:1px}
-nav a:hover{color:var(--gold)}
-.nav-cta{border:1px solid var(--gold);padding:12px 18px;color:var(--gold)}
-.menu{display:none;background:none;border:0;color:white;font-size:25px}
-.hero{
- min-height:700px;display:flex;align-items:center;padding:80px 9%;
- background:
- linear-gradient(90deg,rgba(0,0,0,.94),rgba(0,0,0,.64),rgba(0,0,0,.2)),
- url('https://commons.wikimedia.org/wiki/Special:FilePath/Morgan_Wallen_performing_at_Freedom_Fest_2019-original.jpg?width=1800') center 35%/cover;
+
+button, input, select {
+  font: inherit;
 }
-.hero-content{max-width:690px}
-.eyebrow{font-size:11px;color:var(--gold);letter-spacing:4px;font-weight:700}
-.hero h1{
- font:600 clamp(48px,7vw,80px)/1.08 'Playfair Display';
- margin:24px 0;
+
+.notice {
+  text-align: center;
+  background: #302719;
+  color: #e3cda6;
+  padding: 10px;
+  font-size: 10px;
+  letter-spacing: 1px;
 }
-.hero h1 span{color:var(--gold)}
-.hero p{font-size:15px;line-height:1.9;color:#ddd;max-width:560px;margin-bottom:30px}
-.btn{
- display:inline-block;padding:15px 25px;background:var(--gold);
- color:#111;font-size:11px;font-weight:800;letter-spacing:1px;border:1px solid var(--gold);
- cursor:pointer;
+
+header {
+  height: 80px;
+  padding: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #303030;
+  background: #10100f;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-.btn:hover{background:transparent;color:var(--gold)}
-.btn-outline{background:transparent;color:white;border-color:#777;margin-left:10px}
-section{padding:95px 8%}
-.heading{text-align:center;margin-bottom:50px}
-.heading small{color:var(--gold);letter-spacing:3px;font-size:10px}
-.heading h2{font:600 43px 'Playfair Display';margin:15px 0}
-.heading p{color:var(--muted);font-size:13px;line-height:1.8}
-.artist{
- display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  letter-spacing: 2px;
 }
-.artist-image{
- width:100%;height:550px;object-fit:cover;object-position:center 25%;
+
+.logo span { color: var(--gold); }
+
+nav {
+  display: flex;
+  gap: 28px;
 }
-.artist-copy h2{font:600 46px 'Playfair Display';margin:15px 0}
-.artist-copy p{color:#aaa;font-size:14px;line-height:2;margin-bottom:20px}
-.artist-tag{font-size:10px;color:var(--gold);letter-spacing:3px}
-.credit{font-size:10px;color:#777;margin-top:12px}
-.dark-section{background:#181817}
-.packages{
- display:grid;grid-template-columns:repeat(2,1fr);gap:22px;
- max-width:950px;margin:auto;
+
+nav a {
+  color: #ddd;
+  font-size: 11px;
+  text-decoration: none;
 }
-.package{
- background:#10100f;border:1px solid #393832;padding:32px;
- position:relative;transition:.3s;
+
+nav a:hover { color: var(--gold); }
+
+.hero {
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  padding: 80px 9%;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.65),rgba(0,0,0,.25)),
+    url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1800&q=85') center/cover;
 }
-.package:hover{border-color:var(--gold);transform:translateY(-5px)}
-.package.featured{border-color:var(--gold)}
-.package h3{font:600 25px 'Playfair Display';margin-bottom:8px}
-.package .price{font:600 36px 'Playfair Display';color:var(--gold);margin:18px 0}
-.package p{font-size:13px;color:#aaa;line-height:1.8}
-.package ul{list-style:none;margin:22px 0}
-.package li{font-size:12px;color:#ccc;margin:13px 0}
-.package li:before{content:"✦";color:var(--gold);margin-right:10px}
-.package button{width:100%;margin-top:12px}
-.sample-label{font-size:9px;color:#c9ad7e;letter-spacing:2px}
-.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
-.process-item{text-align:center;border:1px solid #333;padding:30px}
-.process-item span{font:38px 'Playfair Display';color:var(--gold)}
-.process-item h3{font:22px 'Playfair Display';margin:15px 0}
-.process-item p{font-size:12px;color:#aaa;line-height:1.8}
-.booking-section{
- background:linear-gradient(rgba(0,0,0,.88),rgba(0,0,0,.94)),
- url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1600&q=85') center/cover;
+
+.hero-content { max-width: 650px; }
+
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 11px;
 }
-.booking-box{
- max-width:650px;margin:auto;background:#171716;
- border:1px solid #38352d;padding:40px;
+
+.hero h1 {
+  font: 600 clamp(45px,7vw,75px)/1.12 'Playfair Display';
+  margin: 24px 0;
 }
-.steps-indicator{display:flex;justify-content:space-between;margin-bottom:35px}
-.step-indicator{font-size:10px;color:#777;letter-spacing:1px}
-.step-indicator.active{color:var(--gold)}
-.progress{height:3px;background:#353535;margin-bottom:30px}
-.progress-bar{height:100%;background:var(--gold);width:33.33%;transition:.4s}
-.booking-box h2{font:600 34px 'Playfair Display';margin-bottom:10px}
-.booking-box>p{color:#aaa;font-size:12px;line-height:1.8;margin-bottom:25px}
-.field{margin-bottom:17px}
-.field label{display:block;color:#ccc;font-size:11px;margin-bottom:8px}
-.field input,.field select{
- width:100%;padding:15px;background:#10100f;border:1px solid #444;
- color:white;outline:none;
+
+.hero h1 span { color: var(--gold); }
+
+.hero p {
+  color: #ccc;
+  line-height: 1.9;
+  font-size: 14px;
+  margin-bottom: 30px;
 }
-.field input:focus,.field select:focus{border-color:var(--gold)}
-.two-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.choice{
- padding:17px;border:1px solid #444;margin:12px 0;
- display:flex;justify-content:space-between;align-items:center;
- cursor:pointer;background:#111;
+
+.btn {
+  padding: 15px 25px;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  color: #111;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
 }
-.choice.selected{border-color:var(--gold);background:#242016}
-.choice input{accent-color:var(--gold)}
-.choice strong{color:var(--gold)}
-.choice small{display:block;color:#aaa;font-size:10px;margin-top:5px}
-.total{
- display:flex;justify-content:space-between;
- border-top:1px solid #444;padding-top:20px;margin:20px 0;
+
+.btn:hover {
+  background: transparent;
+  color: var(--gold);
 }
-.total strong{color:var(--gold);font-size:21px}
-.full-btn{width:100%;margin-top:15px}
-.back-btn{background:transparent;border:0;color:#aaa;cursor:pointer;margin-top:20px;font-size:12px}
-.step-page{display:none}
-.step-page.active{display:block}
-.processing{text-align:center;padding:35px 0}
-.spinner{
- width:55px;height:55px;border:3px solid #444;
- border-top-color:var(--gold);border-radius:50%;
- animation:spin 1s linear infinite;margin:20px auto;
+
+.btn-outline {
+  background: transparent;
+  color: white;
+  border-color: #777;
+  margin-left: 10px;
 }
-@keyframes spin{to{transform:rotate(360deg)}}
-.success-icon{
- width:60px;height:60px;border:1px solid var(--gold);
- border-radius:50%;display:grid;place-items:center;
- color:var(--gold);font-size:30px;margin:20px auto;
+
+section { padding: 85px 8%; }
+
+.heading {
+  text-align: center;
+  margin-bottom: 45px;
 }
-.confirmation{text-align:center;padding:20px 0}
-.confirmation p{color:#aaa;font-size:13px;line-height:1.9;margin:15px 0}
-.reference{color:var(--gold);font-size:12px;letter-spacing:1px}
-footer{padding:55px 8% 25px;background:#090909}
-.footer-row{display:flex;justify-content:space-between;gap:35px;flex-wrap:wrap;margin-bottom:35px}
-.footer-row p{font-size:12px;color:#999;max-width:350px;line-height:1.9;margin-top:15px}
-.footer-row h4{color:var(--gold);font-size:12px;margin-bottom:15px}
-.footer-row a{display:block;color:#aaa;font-size:12px;margin:10px 0}
-.footer-bottom{border-top:1px solid #292929;padding-top:20px;text-align:center;color:#777;font-size:10px;line-height:1.8}
-@media(max-width:850px){
- header{padding:0 5%}
- .menu{display:block}
- nav{display:none;position:absolute;top:82px;left:0;width:100%;background:#111;padding:25px;flex-direction:column}
- nav.active{display:flex}
- .artist{grid-template-columns:1fr;gap:30px}
- .artist-image{height:450px}
- .process-grid{grid-template-columns:1fr}
- section{padding:70px 6%}
+
+.heading small {
+  color: var(--gold);
+  letter-spacing: 3px;
 }
-@media(max-width:550px){
- .hero{min-height:630px;padding:65px 6%}
- .hero h1{font-size:49px}
- .packages{grid-template-columns:1fr}
- .booking-box{padding:25px 18px}
- .two-fields{grid-template-columns:1fr}
- .heading h2{font-size:34px}
- .artist-copy h2{font-size:38px}
+
+.heading h2 {
+  font: 600 40px 'Playfair Display';
+  margin: 15px 0;
+}
+
+.heading p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.artist {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 55px;
+  align-items: center;
+}
+
+.artist img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.artist h2 {
+  font: 600 43px 'Playfair Display';
+  margin: 15px 0;
+}
+
+.artist p {
+  color: #aaa;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.packages {
+  background: #191918;
+}
+
+.package-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 22px;
+  max-width: 950px;
+  margin: auto;
+}
+
+.package {
+  padding: 30px;
+  background: #10100f;
+  border: 1px solid #383838;
+}
+
+.package:hover { border-color: var(--gold); }
+
+.package h3 {
+  font: 24px 'Playfair Display';
+}
+
+.price {
+  color: var(--gold);
+  font: 36px 'Playfair Display';
+  margin: 15px 0;
+}
+
+.package p {
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.package ul {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.package li {
+  color: #ccc;
+  font-size: 12px;
+  margin: 12px 0;
+}
+
+.package li:before {
+  content: "✦ ";
+  color: var(--gold);
+}
+
+.package button { width: 100%; }
+
+.booking-section {
+  background:
+    linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.94)),
+    url('https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1800&q=85') center/cover;
+}
+
+.booking-box {
+  max-width: 650px;
+  margin: auto;
+  background: #181817;
+  border: 1px solid #39352d;
+  padding: 38px;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.progress-labels span {
+  font-size: 10px;
+  color: #777;
+}
+
+.progress-labels .active { color: var(--gold); }
+
+.progress {
+  height: 3px;
+  background: #444;
+  margin-bottom: 35px;
+}
+
+.progress-inner {
+  height: 100%;
+  width: 20%;
+  background: var(--gold);
+  transition: .4s;
+}
+
+.page { display: none; }
+.page.active { display: block; }
+
+.booking-box h2 {
+  font: 600 32px 'Playfair Display';
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #aaa;
+  margin-bottom: 25px;
+}
+
+.field { margin-bottom: 18px; }
+
+.field label {
+  display: block;
+  font-size: 11px;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 15px;
+  background: #10100f;
+  border: 1px solid #444;
+  color: white;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--gold);
+}
+
+.btn-full { width: 100%; }
+
+.loading-page {
+  text-align: center;
+  padding: 40px 10px;
+}
+
+.spinner {
+  width: 65px;
+  height: 65px;
+  border: 3px solid #454545;
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  margin: 20px auto 30px;
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+.loading-page p {
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 12px;
+}
+
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.date-option {
+  padding: 14px 5px;
+  text-align: center;
+  border: 1px solid #444;
+  background: #111;
+  color: #ddd;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.date-option:hover,
+.date-option.selected {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: #292318;
+}
+
+.date-option.unavailable {
+  opacity: .35;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.choice {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #444;
+  padding: 17px;
+  margin: 12px 0;
+  cursor: pointer;
+  background: #111;
+}
+
+.choice.selected {
+  border-color: var(--gold);
+  background: #282217;
+}
+
+.choice strong { color: var(--gold); }
+
+.choice small {
+  display: block;
+  font-size: 10px;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.choice input { accent-color: var(--gold); }
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  border-top: 1px solid #444;
+  margin-top: 20px;
+}
+
+.total strong {
+  color: var(--gold);
+  font-size: 21px;
+}
+
+.back {
+  background: none;
+  color: #aaa;
+  border: none;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.final-result {
+  text-align: center;
+  padding: 25px 0;
+}
+
+.checkmark {
+  height: 65px;
+  width: 65px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  margin: 20px auto;
+}
+
+.final-result p {
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.9;
+  margin: 18px 0;
+}
+
+footer {
+  background: #090909;
+  padding: 50px 8% 25px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  text-align: center;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+@media(max-width:800px) {
+  .artist { grid-template-columns: 1fr; }
+  .artist img { height: 420px; }
+  .hero { min-height: 600px; }
+  section { padding: 65px 6%; }
+}
+
+@media(max-width:550px) {
+  .package-grid { grid-template-columns: 1fr; }
+  .booking-box { padding: 25px 17px; }
+  .date-grid { grid-template-columns: repeat(3,1fr); }
+  .hero h1 { font-size: 47px; }
+  .heading h2 { font-size: 33px; }
 }
 </style>
 </head>
@@ -184,401 +478,495 @@ footer{padding:55px 8% 25px;background:#090909}
 <body>
 
 <div class="notice">
-INDEPENDENT FAN EXPERIENCE CONCEPT · NOT AN OFFICIAL MORGAN WALLEN WEBSITE
+INDEPENDENT MORGAN WALLEN FAN EXPERIENCE CONCEPT
 </div>
 
 <header>
- <a class="logo" href="#home">WALLEN<span> EXPERIENCES</span></a>
- <button class="menu" onclick="toggleMenu()">☰</button>
- <nav id="nav">
-  <a href="#home">HOME</a>
-  <a href="#artist">ABOUT</a>
-  <a href="#packages">EXPERIENCES</a>
-  <a href="#process">HOW IT WORKS</a>
-  <a href="#booking" class="nav-cta">RESERVATION DEMO</a>
- </nav>
+  <div class="logo">WALLEN<span> EXPERIENCES</span></div>
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#artist">ARTIST</a>
+    <a href="#packages">EXPERIENCES</a>
+    <a href="#booking">RESERVATIONS</a>
+  </nav>
 </header>
 
-<main>
 <section class="hero" id="home">
- <div class="hero-content">
-  <div class="eyebrow">COUNTRY MUSIC · FAN EXPERIENCE</div>
-  <h1>Closer to the Music.<br><span>Closer to the Moment.</span></h1>
-  <p>
-   Explore an independently designed fan-experience concept
-   inspired by the music and live performances of Morgan Wallen.
-   Discover sample hospitality packages and experience a
-   premium reservation journey.
-  </p>
-  <a href="#packages" class="btn">EXPLORE EXPERIENCES</a>
-  <a href="#artist" class="btn btn-outline">MEET THE ARTIST</a>
- </div>
+  <div class="hero-content">
+    <div class="eyebrow">COUNTRY MUSIC · FAN EXPERIENCES</div>
+    <h1>Experience the Music.<br><span>Celebrate the Moment.</span></h1>
+    <p>
+      Discover an independent fan-experience concept inspired
+      by Morgan Wallen's music and live performances.
+      Explore premium experience packages and reservation options.
+    </p>
+    <a href="#booking" class="btn">START YOUR INQUIRY</a>
+    <a href="#artist" class="btn btn-outline">DISCOVER MORE</a>
+  </div>
 </section>
 
 <section id="artist">
- <div class="artist">
-  <img class="artist-image"
-   src="https://commons.wikimedia.org/wiki/Special:FilePath/Morgan_Wallen.jpg?width=1000"
-   alt="Morgan Wallen performing">
-  <div class="artist-copy">
-   <div class="artist-tag">THE ARTIST</div>
-   <h2>Morgan Wallen</h2>
-   <p>
-    Morgan Wallen is an American country music singer and
-    songwriter known for his distinctive sound, energetic
-    performances and popular country music releases.
-   </p>
-   <p>
-    This independent fan concept celebrates the live-music
-    experience and demonstrates how a premium artist
-    hospitality and reservation platform could be presented.
-   </p>
-   <a href="#packages" class="btn">VIEW SAMPLE PACKAGES</a>
-   <div class="credit">
-    Photograph: Mpkat2 / Wikimedia Commons,
-    CC BY-SA 4.0.
-   </div>
+  <div class="artist">
+    <img
+      src="https://commons.wikimedia.org/wiki/Special:FilePath/Morgan_Wallen.jpg?width=1000"
+      alt="Morgan Wallen">
+
+    <div>
+      <div class="eyebrow">FEATURED ARTIST</div>
+      <h2>Morgan Wallen</h2>
+      <p>
+        Morgan Wallen is an American country music singer
+        and songwriter recognized for his distinctive sound
+        and energetic live performances.
+      </p>
+      <p>
+        Explore this independently designed fan-experience
+        platform and its illustrative hospitality packages.
+      </p>
+      <a href="#packages" class="btn">EXPLORE PACKAGES</a>
+    </div>
   </div>
- </div>
 </section>
 
-<section class="dark-section" id="packages">
- <div class="heading">
-  <small>EXCLUSIVE EXPERIENCE CONCEPTS</small>
-  <h2>Choose Your Experience</h2>
-  <p>
-   Explore four illustrative experience levels.
-   All amounts below are fictional demonstration prices,
-   not verified offers or actual artist booking fees.
-  </p>
- </div>
-
- <div class="packages">
-  <div class="package">
-   <span class="sample-label">SAMPLE PACKAGE 01</span>
-   <h3>Standard Experience</h3>
-   <div class="price">$25,000</div>
-   <p>An introductory premium fan-experience concept.</p>
-   <ul>
-    <li>Sample priority inquiry</li>
-    <li>Illustrative event information</li>
-    <li>Reservation request summary</li>
-    <li>Email notification demonstration</li>
-   </ul>
-   <button class="btn" onclick="choosePackage('Standard Experience',25000)">SELECT EXPERIENCE</button>
+<section class="packages" id="packages">
+  <div class="heading">
+    <small>EXPERIENCE COLLECTION</small>
+    <h2>Explore The Packages</h2>
+    <p>Illustrative package options and prices.</p>
   </div>
 
-  <div class="package featured">
-   <span class="sample-label">SAMPLE PACKAGE 02</span>
-   <h3>Premium Experience</h3>
-   <div class="price">$50,000</div>
-   <p>A more elevated illustrative hospitality concept.</p>
-   <ul>
-    <li>Everything in Standard</li>
-    <li>Illustrative premium seating</li>
-    <li>Personalized inquiry summary</li>
-    <li>Priority request demonstration</li>
-   </ul>
-   <button class="btn" onclick="choosePackage('Premium Experience',50000)">SELECT EXPERIENCE</button>
-  </div>
+  <div class="package-grid">
+    <div class="package">
+      <h3>Standard</h3>
+      <div class="price">$25,000</div>
+      <p>Entry-level experience concept.</p>
+      <ul>
+        <li>Reservation inquiry</li>
+        <li>Experience preference</li>
+        <li>Email notification demonstration</li>
+      </ul>
+      <button class="btn" onclick="startBooking('Standard',25000)">SELECT PACKAGE</button>
+    </div>
 
-  <div class="package">
-   <span class="sample-label">SAMPLE PACKAGE 03</span>
-   <h3>VIP Experience</h3>
-   <div class="price">$100,000</div>
-   <p>An elevated VIP-style fan hospitality concept.</p>
-   <ul>
-    <li>Everything in Premium</li>
-    <li>Illustrative VIP hospitality</li>
-    <li>Special event inquiry</li>
-    <li>Detailed request summary</li>
-   </ul>
-   <button class="btn" onclick="choosePackage('VIP Experience',100000)">SELECT EXPERIENCE</button>
-  </div>
+    <div class="package">
+      <h3>Premium</h3>
+      <div class="price">$50,000</div>
+      <p>Enhanced premium experience concept.</p>
+      <ul>
+        <li>Priority inquiry concept</li>
+        <li>Premium experience preference</li>
+        <li>Personalized request summary</li>
+      </ul>
+      <button class="btn" onclick="startBooking('Premium',50000)">SELECT PACKAGE</button>
+    </div>
 
-  <div class="package">
-   <span class="sample-label">SAMPLE PACKAGE 04</span>
-   <h3>Ultimate Experience</h3>
-   <div class="price">$250,000</div>
-   <p>The highest illustrative experience tier.</p>
-   <ul>
-    <li>Everything in VIP</li>
-    <li>Premium hospitality concept</li>
-    <li>Custom experience inquiry</li>
-    <li>Comprehensive request summary</li>
-   </ul>
-   <button class="btn" onclick="choosePackage('Ultimate Experience',250000)">SELECT EXPERIENCE</button>
+    <div class="package">
+      <h3>VIP</h3>
+      <div class="price">$100,000</div>
+      <p>Elevated VIP hospitality concept.</p>
+      <ul>
+        <li>VIP experience preference</li>
+        <li>Enhanced inquiry details</li>
+        <li>Priority request demonstration</li>
+      </ul>
+      <button class="btn" onclick="startBooking('VIP',100000)">SELECT PACKAGE</button>
+    </div>
+
+    <div class="package">
+      <h3>Ultimate</h3>
+      <div class="price">$250,000</div>
+      <p>Highest-tier experience concept.</p>
+      <ul>
+        <li>Premium hospitality concept</li>
+        <li>Custom experience inquiry</li>
+        <li>Detailed request summary</li>
+      </ul>
+      <button class="btn" onclick="startBooking('Ultimate',250000)">SELECT PACKAGE</button>
+    </div>
   </div>
- </div>
 </section>
 
-<section id="process">
- <div class="heading">
-  <small>THE RESERVATION JOURNEY</small>
-  <h2>How It Works</h2>
-  <p>A simple demonstration of a premium fan-experience inquiry.</p>
- </div>
-
- <div class="process-grid">
-  <div class="process-item">
-   <span>01</span>
-   <h3>Submit Details</h3>
-   <p>Enter your contact details and select the experience you would like to explore.</p>
-  </div>
-  <div class="process-item">
-   <span>02</span>
-   <h3>Select a Package</h3>
-   <p>Compare the sample packages and choose your preferred experience level.</p>
-  </div>
-  <div class="process-item">
-   <span>03</span>
-   <h3>Receive Confirmation</h3>
-   <p>See a demonstration of the inquiry processing and confirmation process.</p>
-  </div>
- </div>
-</section>
-
-<section class="booking-section" id="booking">
- <div class="heading">
-  <small>FAN EXPERIENCE PORTAL</small>
-  <h2>Reservation Inquiry</h2>
-  <p>Experience the interactive reservation demonstration.</p>
- </div>
-
- <div class="booking-box">
-  <div class="steps-indicator">
-   <span class="step-indicator active" id="label1">01 DETAILS</span>
-   <span class="step-indicator" id="label2">02 EXPERIENCE</span>
-   <span class="step-indicator" id="label3">03 RESULT</span>
+<section id="booking">
+  <div class="heading">
+    <small>RESERVATION PORTAL</small>
+    <h2>Experience Inquiry</h2>
+    <p>Complete the steps below to explore the reservation process.</p>
   </div>
 
-  <div class="progress">
-   <div class="progress-bar" id="progress"></div>
-  </div>
+  <div class="booking-box">
 
-  <div class="step-page active" id="page1">
-   <h2>Personal Information</h2>
-   <p>Enter sample details to explore the reservation process. This demonstration does not transmit or store your information.</p>
-
-   <form id="detailsForm">
-    <div class="field">
-     <label>Full Name</label>
-     <input id="fullName" type="text" placeholder="Enter your full name" required>
+    <div class="progress-labels">
+      <span id="l1" class="active">01 DETAILS</span>
+      <span id="l2">02 DATES</span>
+      <span id="l3">03 LOCATION</span>
+      <span id="l4">04 PACKAGE</span>
     </div>
 
-    <div class="field">
-     <label>Email Address</label>
-     <input id="email" type="email" placeholder="Enter your email address" required>
+    <div class="progress">
+      <div class="progress-inner" id="progress"></div>
     </div>
 
-    <div class="two-fields">
-     <div class="field">
-      <label>Phone Number</label>
-      <input id="phone" type="tel" placeholder="+1 000 000 0000" required>
-     </div>
-     <div class="field">
-      <label>Country</label>
-      <select id="country" required>
-       <option value="">Select country</option>
-       <option>United States</option>
-       <option>United Kingdom</option>
-       <option>Canada</option>
-       <option>Nigeria</option>
-       <option>Australia</option>
-       <option>Other</option>
-      </select>
-     </div>
+    <!-- STEP 1 -->
+    <div class="page active" id="p1">
+      <h2>Personal Details</h2>
+      <p class="description">
+        Enter your name and contact number to begin your inquiry.
+        Use fictional details for this demonstration.
+      </p>
+
+      <div class="field">
+        <label>Full Name</label>
+        <input id="name" placeholder="Enter full name" required>
+      </div>
+
+      <div class="field">
+        <label>Phone Number</label>
+        <input id="phone" type="tel" placeholder="+1 000 000 0000" required>
+      </div>
+
+      <button class="btn btn-full" onclick="firstStep()">CONTINUE</button>
     </div>
 
-    <div class="field">
-     <label>Preferred Experience Date</label>
-     <input type="date" id="date">
+    <!-- LOADING 1 -->
+    <div class="page loading-page" id="pLoading1">
+      <div class="spinner"></div>
+      <h2>Checking Availability</h2>
+      <p>Searching the sample experience calendar...</p>
+      <p id="timer1"></p>
     </div>
 
-    <button class="btn full-btn" type="submit">CONTINUE TO EXPERIENCES →</button>
-   </form>
-  </div>
+    <!-- STEP 2 -->
+    <div class="page" id="p2">
+      <h2>Choose Your Preferred Date</h2>
+      <p class="description">
+        Select one of the illustrative calendar dates below.
+        Availability is not connected to an actual event calendar.
+      </p>
 
-  <div class="step-page" id="page2">
-   <h2>Select Your Experience</h2>
-   <p>Choose one of the illustrative packages below.</p>
+      <div class="date-grid" id="dates"></div>
 
-   <div id="choices">
-    <label class="choice">
-     <span>Standard Experience<small>Sample entry-level concept</small></span>
-     <strong>$25,000</strong>
-     <input type="radio" name="package" value="25000" data-name="Standard Experience">
-    </label>
-    <label class="choice">
-     <span>Premium Experience<small>Sample premium concept</small></span>
-     <strong>$50,000</strong>
-     <input type="radio" name="package" value="50000" data-name="Premium Experience">
-    </label>
-    <label class="choice">
-     <span>VIP Experience<small>Sample VIP concept</small></span>
-     <strong>$100,000</strong>
-     <input type="radio" name="package" value="100000" data-name="VIP Experience">
-    </label>
-    <label class="choice">
-     <span>Ultimate Experience<small>Sample highest-tier concept</small></span>
-     <strong>$250,000</strong>
-     <input type="radio" name="package" value="250000" data-name="Ultimate Experience">
-    </label>
-   </div>
+      <button class="btn btn-full" onclick="selectDate()">CONTINUE</button>
+      <button class="back" onclick="showPage('p1',1)">← Back</button>
+    </div>
 
-   <div class="total">
-    <span>Illustrative package amount</span>
-    <strong id="total">$0</strong>
-   </div>
+    <!-- LOADING 2 -->
+    <div class="page loading-page" id="pLoading2">
+      <div class="spinner"></div>
+      <h2>Please Wait While We Reconnect</h2>
+      <p>Preparing your experience preferences...</p>
+    </div>
 
-   <p>These are fictional demonstration amounts. No payment is due or collected.</p>
-   <button class="btn full-btn" onclick="submitDemo()">SUBMIT DEMO INQUIRY</button>
-   <button class="back-btn" onclick="showPage(1)">← Back to personal information</button>
-  </div>
+    <!-- STEP 3 -->
+    <div class="page" id="p3">
+      <h2>Location Details</h2>
+      <p class="description">
+        Provide your preferred destination and event preferences.
+      </p>
 
-  <div class="step-page" id="page3">
-   <div class="processing">
-    <div class="spinner"></div>
-    <h2>Processing Your Demo</h2>
-    <p>Please wait while your sample reservation summary is prepared.</p>
-   </div>
-  </div>
+      <div class="field">
+        <label>Country</label>
+        <select id="country">
+          <option value="">Select country</option>
+          <option>United States</option>
+          <option>United Kingdom</option>
+          <option>Canada</option>
+          <option>Australia</option>
+          <option>Nigeria</option>
+          <option>Other</option>
+        </select>
+      </div>
 
-  <div class="step-page" id="page4">
-   <div class="confirmation">
-    <div class="success-icon">✓</div>
-    <h2>Demo Inquiry Completed</h2>
-    <p>Your demonstration inquiry has been processed successfully.</p>
-    <div class="reference" id="reference"></div>
-    <p id="summary"></p>
-    <p>
-     In a real, authorized booking system, availability would
-     need to be verified by the responsible event organizer.
-     No celebrity appearance has been approved or reserved here.
+      <div class="field">
+        <label>Preferred City</label>
+        <input id="city" placeholder="Enter preferred city">
+      </div>
+
+      <div class="field">
+        <label>Number of Guests</label>
+        <select id="guests">
+          <option value="1">1 Guest</option>
+          <option value="2">2 Guests</option>
+          <option value="3">3 Guests</option>
+          <option value="4">4 Guests</option>
+        </select>
+      </div>
+
+      <button class="btn btn-full" onclick="locationStep()">CONTINUE</button>
+      <button class="back" onclick="showPage('p2',2)">← Back</button>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="page" id="p4">
+      <h2>Select Your Package</h2>
+      <p class="description">
+        Compare the illustrative packages and select your preferred option.
+        Amounts are fictional and are not actual artist booking prices.
+      </p>
+
+      <div id="packageChoices">
+        <label class="choice">
+          <span>Standard<small>Illustrative experience</small></span>
+          <strong>$25,000</strong>
+          <input type="radio" name="package" value="25000" data-name="Standard">
+        </label>
+
+        <label class="choice">
+          <span>Premium<small>Illustrative premium option</small></span>
+          <strong>$50,000</strong>
+          <input type="radio" name="package" value="50000" data-name="Premium">
+        </label>
+
+        <label class="choice">
+          <span>VIP<small>Illustrative VIP option</small></span>
+          <strong>$100,000</strong>
+          <input type="radio" name="package" value="100000" data-name="VIP">
+        </label>
+
+        <label class="choice">
+          <span>Ultimate<small>Illustrative highest tier</small></span>
+          <strong>$250,000</strong>
+          <input type="radio" name="package" value="250000" data-name="Ultimate">
+        </label>
+      </div>
+
+      <div class="total">
+        <span>Selected amount</span>
+        <strong id="amount">$0</strong>
+      </div>
+
+      <button class="btn btn-full" onclick="finishBooking()">SUBMIT INQUIRY</button>
+      <button class="back" onclick="showPage('p3',3)">← Back</button>
+    </div>
+
+    <!-- FINAL -->
+    <div class="page" id="p5">
+      <div class="final-result">
+        <div class="checkmark">✓</div>
+        <h2>Inquiry Completed</h2>
+
+        <p id="finalText"></p>
+
+        <p>
+          In an authorized booking service, availability and
+          participation would need to be independently verified
+          by the event organizer before any payment is requested.
+        </p>
+
+        <button class="btn btn-full" onclick="resetBooking()">
+          START AGAIN
+        </button>
+      </div>
+    </div>
+
+    <p style="font-size:10px;color:#777;margin-top:25px;text-align:center">
+      Independent educational website concept. No real bookings,
+      payments, or emails are processed.
     </p>
-    <button class="btn full-btn" onclick="resetDemo()">START NEW DEMONSTRATION</button>
-   </div>
   </div>
-
-  <p class="credit">Educational prototype only. Do not enter real personal or payment information.</p>
- </div>
 </section>
-</main>
 
 <footer>
- <div class="footer-row">
-  <div>
-   <div class="logo">WALLEN<span> EXPERIENCES</span></div>
-   <p>
-    An independent educational concept exploring
-    premium artist fan-experience website design.
-    Not affiliated with Morgan Wallen or his representatives.
-   </p>
+  <div class="footer-bottom">
+    WALLEN EXPERIENCES · INDEPENDENT FAN EXPERIENCE CONCEPT<br>
+    Not affiliated with, endorsed by, or authorized by Morgan Wallen
+    or his management. All package prices and availability are illustrative.
   </div>
-  <div>
-   <h4>EXPLORE</h4>
-   <a href="#artist">About the Artist</a>
-   <a href="#packages">Sample Experiences</a>
-   <a href="#process">How It Works</a>
-  </div>
-  <div>
-   <h4>INFORMATION</h4>
-   <a href="#booking">Reservation Demo</a>
-   <a href="#home">Privacy & Demo Notice</a>
-  </div>
- </div>
- <div class="footer-bottom">
-  © 2026 Independent Fan Experience Website Concept.<br>
-  Morgan Wallen is referenced for educational and illustrative purposes only.
-  No endorsement, representation, or official booking relationship is implied.
- </div>
 </footer>
 
 <script>
-function toggleMenu(){
- document.getElementById('nav').classList.toggle('active');
+let selectedDate = "";
+let selectedPackage = "";
+let selectedAmount = 0;
+
+function showPage(id,step) {
+  document.querySelectorAll('.page').forEach(p=>{
+    p.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+
+  const progress = step ? step*20 : 0;
+  document.getElementById('progress').style.width=progress+'%';
+
+  for(let i=1;i<=4;i++){
+    document.getElementById('l'+i).classList.toggle(
+      'active', i<=step
+    );
+  }
 }
 
-function showPage(number){
- document.querySelectorAll('.step-page').forEach(p=>p.classList.remove('active'));
- document.getElementById('page'+number).classList.add('active');
+function firstStep(){
+  const name=document.getElementById('name').value.trim();
+  const phone=document.getElementById('phone').value.trim();
 
- document.querySelectorAll('.step-indicator').forEach((s,i)=>{
-  s.classList.toggle('active',i<number);
- });
+  if(!name || !phone){
+    alert('Please enter your full name and phone number.');
+    return;
+  }
 
- document.getElementById('progress').style.width =
- number===1?'33.33%':number===2?'66.66%':'100%';
+  showPage('pLoading1',1);
+
+  let seconds=10;
+  document.getElementById('timer1').textContent='10 seconds';
+
+  const timer=setInterval(()=>{
+    seconds--;
+    document.getElementById('timer1').textContent=seconds+' seconds';
+
+    if(seconds<=0){
+      clearInterval(timer);
+      generateDates();
+      showPage('p2',2);
+    }
+  },1000);
 }
 
-document.getElementById('detailsForm').addEventListener('submit',function(e){
- e.preventDefault();
+function generateDates(){
+  const container=document.getElementById('dates');
+  container.innerHTML='';
 
- if(!this.reportValidity())return;
+  const start=new Date(2027,0,19);
+  const end=new Date(2027,2,4);
 
- showPage(2);
-});
+  let dates=[];
+
+  for(let d=new Date(start);d<=end;d.setDate(d.getDate()+1)){
+    dates.push(new Date(d));
+  }
+
+  dates.sort(()=>Math.random()-.5);
+  dates=dates.slice(0,12);
+  dates.sort((a,b)=>a-b);
+
+  dates.forEach(date=>{
+    const day=date.getDate();
+    const month=date.toLocaleString('en-US',{month:'short'});
+    const year=date.getFullYear();
+
+    const button=document.createElement('button');
+    button.className='date-option';
+    button.type='button';
+    button.textContent=month+' '+day+', '+year;
+
+    if(Math.random()<0.25){
+      button.classList.add('unavailable');
+      button.disabled=true;
+    }else{
+      button.onclick=()=>{
+        document.querySelectorAll('.date-option')
+          .forEach(b=>b.classList.remove('selected'));
+
+        button.classList.add('selected');
+        selectedDate=button.textContent;
+      };
+    }
+
+    container.appendChild(button);
+  });
+}
+
+function selectDate(){
+  if(!selectedDate){
+    alert('Please select an available date.');
+    return;
+  }
+
+  showPage('pLoading2',2);
+
+  setTimeout(()=>{
+    showPage('p3',3);
+  },10000);
+}
+
+function locationStep(){
+  const country=document.getElementById('country').value;
+  const city=document.getElementById('city').value.trim();
+
+  if(!country || !city){
+    alert('Please complete your location details.');
+    return;
+  }
+
+  showPage('p4',4);
+}
 
 document.querySelectorAll('input[name="package"]').forEach(input=>{
- input.addEventListener('change',function(){
-  document.querySelectorAll('.choice').forEach(c=>c.classList.remove('selected'));
-  this.closest('.choice').classList.add('selected');
-  document.getElementById('total').textContent =
-  '$'+Number(this.value).toLocaleString('en-US');
- });
+  input.addEventListener('change',()=>{
+    document.querySelectorAll('.choice')
+      .forEach(c=>c.classList.remove('selected'));
+
+    input.closest('.choice').classList.add('selected');
+
+    selectedPackage=input.dataset.name;
+    selectedAmount=Number(input.value);
+
+    document.getElementById('amount').textContent=
+      '$'+selectedAmount.toLocaleString('en-US');
+  });
 });
 
-function choosePackage(name,amount){
- document.querySelectorAll('input[name="package"]').forEach(input=>{
-  if(Number(input.value)===amount){
-   input.checked=true;
-   input.dispatchEvent(new Event('change'));
+function startBooking(name,amount){
+  document.getElementById('booking').scrollIntoView({
+    behavior:'smooth'
+  });
+
+  setTimeout(()=>{
+    const option=document.querySelector(
+      'input[name="package"][value="'+amount+'"]'
+    );
+
+    if(option){
+      option.checked=true;
+      option.dispatchEvent(new Event('change'));
+    }
+  },500);
+}
+
+function finishBooking(){
+  if(!selectedPackage){
+    alert('Please select a package.');
+    return;
   }
- });
- document.getElementById('booking').scrollIntoView({behavior:'smooth'});
+
+  const name=document.getElementById('name').value;
+  const country=document.getElementById('country').value;
+  const city=document.getElementById('city').value;
+  const guests=document.getElementById('guests').value;
+
+  document.getElementById('finalText').textContent=
+    'Your sample inquiry for '+name+
+    ' has been completed. Preferred date: '+selectedDate+
+    '. Location: '+city+', '+country+
+    '. Guests: '+guests+
+    '. Selected package: '+selectedPackage+
+    '. Illustrative amount: $'+
+    selectedAmount.toLocaleString('en-US')+
+    '. No booking or payment has been made.';
+
+  showPage('p5',5);
 }
 
-function submitDemo(){
- const selected=document.querySelector('input[name="package"]:checked');
+function resetBooking(){
+  selectedDate='';
+  selectedPackage='';
+  selectedAmount=0;
 
- if(!selected){
-  alert('Please select an experience first.');
-  return;
- }
+  document.getElementById('name').value='';
+  document.getElementById('phone').value='';
+  document.getElementById('city').value='';
+  document.getElementById('country').selectedIndex=0;
+  document.getElementById('guests').selectedIndex=0;
+  document.querySelectorAll('input[name="package"]').forEach(i=>{
+    i.checked=false;
+  });
 
- const name=document.getElementById('fullName').value.trim();
- const email=document.getElementById('email').value.trim();
+  document.querySelectorAll('.choice').forEach(c=>{
+    c.classList.remove('selected');
+  });
 
- if(!name || !email){
-  alert('Please complete your personal information first.');
-  showPage(1);
-  return;
- }
+  document.getElementById('amount').textContent='$0';
 
- showPage(3);
-
- setTimeout(()=>{
-  const ref='DEMO-'+Math.random().toString(36).substring(2,9).toUpperCase();
-
-  document.getElementById('reference').textContent='REFERENCE: '+ref;
-
-  document.getElementById('summary').textContent=
-   'Sample name: '+name+
-   ' | Sample email: '+email+
-   ' | Selected experience: '+selected.dataset.name+
-   ' | Illustrative amount: $'+Number(selected.value).toLocaleString('en-US')+
-   '. This is a local demonstration only. No email or payment request was sent.';
-
-  showPage(4);
- },1800);
-}
-
-function resetDemo(){
- document.getElementById('detailsForm').reset();
- document.querySelectorAll('input[name="package"]').forEach(i=>i.checked=false);
- document.querySelectorAll('.choice').forEach(c=>c.classList.remove('selected'));
- document.getElementById('total').textContent='$0';
- showPage(1);
+  showPage('p1',1);
 }
 </script>
 
