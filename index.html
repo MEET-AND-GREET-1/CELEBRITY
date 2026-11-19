@@ -4,971 +4,485 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wallen Experiences | Fan Experience Portal</title>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#11110f">
+<title>Morgan Wallen | Meet & Greet Inquiry</title>
 
 <style>
 :root {
-  --gold: #c6a36a;
-  --black: #10100f;
-  --panel: #191918;
-  --muted: #aaa;
-  --white: #fff;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background: var(--black);
-  color: white;
-  font-family: 'DM Sans', sans-serif;
-}
-
-button, input, select {
-  font: inherit;
-}
-
-.notice {
-  text-align: center;
-  background: #302719;
-  color: #e3cda6;
-  padding: 10px;
-  font-size: 10px;
-  letter-spacing: 1px;
-}
-
-header {
-  height: 80px;
-  padding: 0 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #303030;
-  background: #10100f;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 23px;
-  letter-spacing: 2px;
-}
-
-.logo span { color: var(--gold); }
-
-nav {
-  display: flex;
-  gap: 28px;
-}
-
-nav a {
-  color: #ddd;
-  font-size: 11px;
-  text-decoration: none;
-}
-
-nav a:hover { color: var(--gold); }
-
-.hero {
-  min-height: 620px;
-  display: flex;
-  align-items: center;
-  padding: 80px 9%;
-  background:
-    linear-gradient(90deg,rgba(0,0,0,.95),rgba(0,0,0,.65),rgba(0,0,0,.25)),
-    url('https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1800&q=85') center/cover;
-}
-
-.hero-content { max-width: 650px; }
-
-.eyebrow {
-  color: var(--gold);
-  letter-spacing: 4px;
-  font-size: 11px;
-}
-
-.hero h1 {
-  font: 600 clamp(45px,7vw,75px)/1.12 'Playfair Display';
-  margin: 24px 0;
-}
-
-.hero h1 span { color: var(--gold); }
-
-.hero p {
-  color: #ccc;
-  line-height: 1.9;
-  font-size: 14px;
-  margin-bottom: 30px;
-}
-
-.btn {
-  padding: 15px 25px;
-  border: 1px solid var(--gold);
-  background: var(--gold);
-  color: #111;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  cursor: pointer;
-  display: inline-block;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background: transparent;
-  color: var(--gold);
-}
-
-.btn-outline {
-  background: transparent;
-  color: white;
-  border-color: #777;
-  margin-left: 10px;
-}
-
-section { padding: 85px 8%; }
-
-.heading {
-  text-align: center;
-  margin-bottom: 45px;
-}
-
-.heading small {
-  color: var(--gold);
-  letter-spacing: 3px;
-}
-
-.heading h2 {
-  font: 600 40px 'Playfair Display';
-  margin: 15px 0;
-}
-
-.heading p {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-.artist {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 55px;
-  align-items: center;
-}
-
-.artist img {
-  width: 100%;
-  height: 480px;
-  object-fit: cover;
-  object-position: center 25%;
-}
-
-.artist h2 {
-  font: 600 43px 'Playfair Display';
-  margin: 15px 0;
-}
-
-.artist p {
-  color: #aaa;
-  font-size: 14px;
-  line-height: 1.9;
-  margin-bottom: 20px;
-}
-
-.packages {
-  background: #191918;
-}
-
-.package-grid {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: 22px;
-  max-width: 950px;
-  margin: auto;
-}
-
-.package {
-  padding: 30px;
-  background: #10100f;
-  border: 1px solid #383838;
-}
-
-.package:hover { border-color: var(--gold); }
-
-.package h3 {
-  font: 24px 'Playfair Display';
-}
-
-.price {
-  color: var(--gold);
-  font: 36px 'Playfair Display';
-  margin: 15px 0;
-}
-
-.package p {
-  color: #aaa;
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-.package ul {
-  list-style: none;
-  margin: 20px 0;
-}
-
-.package li {
-  color: #ccc;
-  font-size: 12px;
-  margin: 12px 0;
-}
-
-.package li:before {
-  content: "✦ ";
-  color: var(--gold);
-}
-
-.package button { width: 100%; }
-
-.booking-section {
-  background:
-    linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.94)),
-    url('https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1800&q=85') center/cover;
-}
-
-.booking-box {
-  max-width: 650px;
-  margin: auto;
-  background: #181817;
-  border: 1px solid #39352d;
-  padding: 38px;
-}
-
-.progress-labels {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
-
-.progress-labels span {
-  font-size: 10px;
-  color: #777;
-}
-
-.progress-labels .active { color: var(--gold); }
-
-.progress {
-  height: 3px;
-  background: #444;
-  margin-bottom: 35px;
-}
-
-.progress-inner {
-  height: 100%;
-  width: 20%;
-  background: var(--gold);
-  transition: .4s;
-}
-
-.page { display: none; }
-.page.active { display: block; }
-
-.booking-box h2 {
-  font: 600 32px 'Playfair Display';
-  margin-bottom: 10px;
-}
-
-.description {
-  font-size: 12px;
-  line-height: 1.8;
-  color: #aaa;
-  margin-bottom: 25px;
-}
-
-.field { margin-bottom: 18px; }
-
-.field label {
-  display: block;
-  font-size: 11px;
-  color: #ccc;
-  margin-bottom: 8px;
-}
-
-.field input,
-.field select {
-  width: 100%;
-  padding: 15px;
-  background: #10100f;
-  border: 1px solid #444;
-  color: white;
-  outline: none;
-}
-
-.field input:focus,
-.field select:focus {
-  border-color: var(--gold);
-}
-
-.btn-full { width: 100%; }
-
-.loading-page {
-  text-align: center;
-  padding: 40px 10px;
-}
-
-.spinner {
-  width: 65px;
-  height: 65px;
-  border: 3px solid #454545;
-  border-top-color: var(--gold);
-  border-radius: 50%;
-  margin: 20px auto 30px;
-  animation: rotate 1s linear infinite;
-}
-
-@keyframes rotate {
-  to { transform: rotate(360deg); }
-}
-
-.loading-page p {
-  color: #aaa;
-  font-size: 12px;
-  margin-top: 12px;
-}
-
-.date-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.date-option {
-  padding: 14px 5px;
-  text-align: center;
-  border: 1px solid #444;
-  background: #111;
-  color: #ddd;
-  cursor: pointer;
-  font-size: 12px;
-}
-
-.date-option:hover,
-.date-option.selected {
-  border-color: var(--gold);
-  color: var(--gold);
-  background: #292318;
-}
-
-.date-option.unavailable {
-  opacity: .35;
-  cursor: not-allowed;
-  text-decoration: line-through;
-}
-
-.choice {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid #444;
-  padding: 17px;
-  margin: 12px 0;
-  cursor: pointer;
-  background: #111;
-}
-
-.choice.selected {
-  border-color: var(--gold);
-  background: #282217;
-}
-
-.choice strong { color: var(--gold); }
-
-.choice small {
-  display: block;
-  font-size: 10px;
-  color: #aaa;
-  margin-top: 5px;
-}
-
-.choice input { accent-color: var(--gold); }
-
-.total {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 0;
-  border-top: 1px solid #444;
-  margin-top: 20px;
-}
-
-.total strong {
-  color: var(--gold);
-  font-size: 21px;
-}
-
-.back {
-  background: none;
-  color: #aaa;
-  border: none;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-.final-result {
-  text-align: center;
-  padding: 25px 0;
-}
-
-.checkmark {
-  height: 65px;
-  width: 65px;
-  border: 1px solid var(--gold);
-  border-radius: 50%;
-  color: var(--gold);
-  display: grid;
-  place-items: center;
-  font-size: 30px;
-  margin: 20px auto;
-}
-
-.final-result p {
-  color: #aaa;
-  font-size: 13px;
-  line-height: 1.9;
-  margin: 18px 0;
-}
-
-footer {
-  background: #090909;
-  padding: 50px 8% 25px;
-}
-
-.footer-bottom {
-  border-top: 1px solid #333;
-  padding-top: 20px;
-  text-align: center;
-  color: #777;
-  font-size: 11px;
-  line-height: 1.8;
-}
-
-@media(max-width:800px) {
-  .artist { grid-template-columns: 1fr; }
-  .artist img { height: 420px; }
-  .hero { min-height: 600px; }
-  section { padding: 65px 6%; }
-}
-
-@media(max-width:550px) {
-  .package-grid { grid-template-columns: 1fr; }
-  .booking-box { padding: 25px 17px; }
-  .date-grid { grid-template-columns: repeat(3,1fr); }
-  .hero h1 { font-size: 47px; }
-  .heading h2 { font-size: 33px; }
+  --bg:#11110f;
+  --panel:#1b1a17;
+  --panel2:#22211d;
+  --gold:#c9a66b;
+  --gold2:#e6c991;
+  --white:#f6f2e9;
+  --muted:#aaa69e;
+  --border:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.6;min-height:100vh
+}
+header{
+  padding:20px 7%;display:flex;justify-content:space-between;
+  align-items:center;border-bottom:1px solid var(--border)
+}
+.logo{color:var(--gold2);font-size:14px;font-weight:bold;letter-spacing:3px}
+.header-right{font-size:11px;color:var(--muted);letter-spacing:1px}
+.hero{
+  text-align:center;padding:85px 20px 75px;
+  background:linear-gradient(180deg,#282319,#11110f);
+  border-bottom:1px solid var(--border)
+}
+.eyebrow{
+  color:var(--gold2);font-size:11px;letter-spacing:4px;
+  text-transform:uppercase;margin-bottom:18px
+}
+.hero h1{
+  font-family:Georgia,serif;font-weight:normal;
+  font-size:clamp(36px,6vw,62px);line-height:1.12;margin-bottom:18px
+}
+.hero p{color:#c2bdb3;max-width:590px;margin:auto;font-size:14px}
+main{width:min(720px,92%);margin:50px auto 80px}
+.progress{margin-bottom:25px}
+.progress-top{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-bottom:9px}
+.track{height:3px;background:#38362f}
+.fill{height:100%;width:14%;background:var(--gold);transition:width .3s}
+.panel{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:5px;padding:clamp(22px,5vw,42px);
+  box-shadow:0 20px 60px rgba(0,0,0,.2)
+}
+.step{display:none}
+.step.active{display:block;animation:appear .35s ease}
+@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.kicker{font-size:11px;color:var(--gold);letter-spacing:3px;margin-bottom:12px}
+h2{font-family:Georgia,serif;font-weight:normal;font-size:clamp(27px,4vw,36px);line-height:1.2;margin-bottom:12px}
+.desc{color:var(--muted);font-size:14px;margin-bottom:26px}
+.field{margin-bottom:19px}
+label{display:block;font-size:13px;margin-bottom:8px;color:#e6e0d5}
+input,select{
+  width:100%;min-height:51px;padding:13px 14px;
+  background:#11110f;border:1px solid #403e37;
+  color:var(--white);border-radius:3px;outline:none
+}
+input:focus,select:focus{border-color:var(--gold)}
+input::placeholder{color:#77746d}
+select option{background:#1b1a17}
+.buttons{display:flex;gap:12px;margin-top:28px}
+.btn{
+  min-height:51px;padding:13px 23px;background:var(--gold);
+  border:1px solid var(--gold);border-radius:3px;
+  color:#17140f;font-weight:bold;cursor:pointer
+}
+.btn:hover{background:var(--gold2)}
+.btn.secondary{background:transparent;color:var(--white);border-color:#55534c}
+.btn.full{width:100%}
+.error{display:none;color:#e4a29b;font-size:12px;margin-top:8px}
+.loading{text-align:center;padding:30px 5px}
+.spinner{
+  height:55px;width:55px;border:3px solid #3c3931;
+  border-top-color:var(--gold);border-radius:50%;
+  margin:0 auto 25px;animation:spin .9s linear infinite
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading p{font-size:14px;color:var(--muted)}
+.loading-note{color:var(--gold2);font-size:11px;letter-spacing:2px;margin-top:18px}
+.note{
+  background:rgba(201,166,107,.07);
+  border-left:2px solid var(--gold);padding:14px;
+  color:#d5c7ad;font-size:12px;margin-top:20px
+}
+.packages{display:grid;gap:14px}
+.package{
+  display:block;background:var(--panel2);border:1px solid #403e37;
+  padding:20px;border-radius:4px;cursor:pointer
+}
+.package.selected,.package:hover{border-color:var(--gold)}
+.package-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:10px}
+.package h3{font-family:Georgia,serif;font-weight:normal;font-size:21px}
+.price{color:var(--gold2);font-weight:bold;white-space:nowrap}
+.package p,.package li{font-size:13px;color:var(--muted)}
+.package ul{margin:12px 0 0 18px}
+.package li{margin-bottom:5px}
+.package input{width:auto;min-height:auto;accent-color:var(--gold);margin-right:7px}
+.package-choice{margin-top:14px;font-size:13px}
+.summary{background:#141412;border:1px solid var(--border);padding:18px;margin:22px 0}
+.summary-row{
+  display:flex;justify-content:space-between;gap:15px;
+  padding:9px 0;border-bottom:1px solid var(--border);font-size:13px
+}
+.summary-row:last-child{border:0}
+.summary-row span:first-child{color:var(--muted)}
+.summary-row span:last-child{text-align:right;overflow-wrap:anywhere}
+.confirmation{text-align:center;padding:18px 0}
+.check{
+  width:65px;height:65px;border:1px solid var(--gold);
+  border-radius:50%;display:grid;place-items:center;
+  color:var(--gold2);font-size:27px;margin:0 auto 22px
+}
+footer{
+  border-top:1px solid var(--border);padding:28px 7%;
+  text-align:center;color:#89847b;font-size:11px
+}
+footer p+p{margin-top:7px}
+footer a{color:var(--gold2)}
+@media(max-width:600px){
+  header{padding:17px 5%}
+  .header-right{font-size:9px}
+  .hero{padding:65px 20px}
+  main{margin:35px auto 60px}
+  .buttons{flex-direction:column}
+  .buttons .btn{width:100%}
+  .package-head{flex-direction:column;gap:5px}
 }
 </style>
 </head>
 
 <body>
-
-<div class="notice">
-INDEPENDENT MORGAN WALLEN FAN EXPERIENCE CONCEPT
-</div>
-
 <header>
-  <div class="logo">WALLEN<span> EXPERIENCES</span></div>
-  <nav>
-    <a href="#home">HOME</a>
-    <a href="#artist">ARTIST</a>
-    <a href="#packages">EXPERIENCES</a>
-    <a href="#booking">RESERVATIONS</a>
-  </nav>
+  <div class="logo">MEET & GREET INQUIRIES</div>
+  <div class="header-right">PRIVATE EVENT REQUESTS</div>
 </header>
 
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="eyebrow">COUNTRY MUSIC · FAN EXPERIENCES</div>
-    <h1>Experience the Music.<br><span>Celebrate the Moment.</span></h1>
-    <p>
-      Discover an independent fan-experience concept inspired
-      by Morgan Wallen's music and live performances.
-      Explore premium experience packages and reservation options.
-    </p>
-    <a href="#booking" class="btn">START YOUR INQUIRY</a>
-    <a href="#artist" class="btn btn-outline">DISCOVER MORE</a>
-  </div>
+<section class="hero">
+  <div class="eyebrow">Morgan Wallen · Event Inquiry</div>
+  <h1>A More Personal<br>Live Experience</h1>
+  <p>
+    Submit your preferred date and event details for consideration
+    of a potential meet-and-greet experience.
+  </p>
 </section>
 
-<section id="artist">
-  <div class="artist">
-    <img
-      src="https://commons.wikimedia.org/wiki/Special:FilePath/Morgan_Wallen.jpg?width=1000"
-      alt="Morgan Wallen">
-
-    <div>
-      <div class="eyebrow">FEATURED ARTIST</div>
-      <h2>Morgan Wallen</h2>
-      <p>
-        Morgan Wallen is an American country music singer
-        and songwriter recognized for his distinctive sound
-        and energetic live performances.
-      </p>
-      <p>
-        Explore this independently designed fan-experience
-        platform and its illustrative hospitality packages.
-      </p>
-      <a href="#packages" class="btn">EXPLORE PACKAGES</a>
+<main>
+  <div class="progress" id="progress">
+    <div class="progress-top">
+      <span>INQUIRY PROCESS</span>
+      <span id="percent">14%</span>
     </div>
-  </div>
-</section>
-
-<section class="packages" id="packages">
-  <div class="heading">
-    <small>EXPERIENCE COLLECTION</small>
-    <h2>Explore The Packages</h2>
-    <p>Illustrative package options and prices.</p>
+    <div class="track"><div class="fill" id="fill"></div></div>
   </div>
 
-  <div class="package-grid">
-    <div class="package">
-      <h3>Standard</h3>
-      <div class="price">$25,000</div>
-      <p>Entry-level experience concept.</p>
-      <ul>
-        <li>Reservation inquiry</li>
-        <li>Experience preference</li>
-        <li>Email notification demonstration</li>
-      </ul>
-      <button class="btn" onclick="startBooking('Standard',25000)">SELECT PACKAGE</button>
-    </div>
+  <div class="panel">
 
-    <div class="package">
-      <h3>Premium</h3>
-      <div class="price">$50,000</div>
-      <p>Enhanced premium experience concept.</p>
-      <ul>
-        <li>Priority inquiry concept</li>
-        <li>Premium experience preference</li>
-        <li>Personalized request summary</li>
-      </ul>
-      <button class="btn" onclick="startBooking('Premium',50000)">SELECT PACKAGE</button>
-    </div>
-
-    <div class="package">
-      <h3>VIP</h3>
-      <div class="price">$100,000</div>
-      <p>Elevated VIP hospitality concept.</p>
-      <ul>
-        <li>VIP experience preference</li>
-        <li>Enhanced inquiry details</li>
-        <li>Priority request demonstration</li>
-      </ul>
-      <button class="btn" onclick="startBooking('VIP',100000)">SELECT PACKAGE</button>
-    </div>
-
-    <div class="package">
-      <h3>Ultimate</h3>
-      <div class="price">$250,000</div>
-      <p>Highest-tier experience concept.</p>
-      <ul>
-        <li>Premium hospitality concept</li>
-        <li>Custom experience inquiry</li>
-        <li>Detailed request summary</li>
-      </ul>
-      <button class="btn" onclick="startBooking('Ultimate',250000)">SELECT PACKAGE</button>
-    </div>
-  </div>
-</section>
-
-<section id="booking">
-  <div class="heading">
-    <small>RESERVATION PORTAL</small>
-    <h2>Experience Inquiry</h2>
-    <p>Complete the steps below to explore the reservation process.</p>
-  </div>
-
-  <div class="booking-box">
-
-    <div class="progress-labels">
-      <span id="l1" class="active">01 DETAILS</span>
-      <span id="l2">02 DATES</span>
-      <span id="l3">03 LOCATION</span>
-      <span id="l4">04 PACKAGE</span>
-    </div>
-
-    <div class="progress">
-      <div class="progress-inner" id="progress"></div>
-    </div>
-
-    <!-- STEP 1 -->
-    <div class="page active" id="p1">
-      <h2>Personal Details</h2>
-      <p class="description">
-        Enter your name and contact number to begin your inquiry.
-        Use fictional details for this demonstration.
-      </p>
+    <section class="step active" id="s1">
+      <div class="kicker">STEP 01 · CONTACT DETAILS</div>
+      <h2>Let's get acquainted.</h2>
+      <p class="desc">Enter your contact details to begin your inquiry.</p>
 
       <div class="field">
-        <label>Full Name</label>
-        <input id="name" placeholder="Enter full name" required>
+        <label for="name">Full name</label>
+        <input id="name" placeholder="Your full name" autocomplete="name">
       </div>
-
       <div class="field">
-        <label>Phone Number</label>
-        <input id="phone" type="tel" placeholder="+1 000 000 0000" required>
+        <label for="email">Email address</label>
+        <input id="email" type="email" placeholder="Your email address" autocomplete="email">
       </div>
+      <p class="error" id="e1">Please enter your full name and a valid email address.</p>
+      <div class="buttons">
+        <button class="btn full" onclick="begin()">Continue</button>
+      </div>
+    </section>
 
-      <button class="btn btn-full" onclick="firstStep()">CONTINUE</button>
-    </div>
+    <section class="step" id="loading1">
+      <div class="loading">
+        <div class="spinner"></div>
+        <h2>Preparing your inquiry</h2>
+        <p>Please wait while the next stage is prepared.</p>
+        <div class="loading-note">PLEASE WAIT</div>
+      </div>
+    </section>
 
-    <!-- LOADING 1 -->
-    <div class="page loading-page" id="pLoading1">
-      <div class="spinner"></div>
-      <h2>Checking Availability</h2>
-      <p>Searching the sample experience calendar...</p>
-      <p id="timer1"></p>
-    </div>
+    <section class="step" id="s2">
+      <div class="kicker">STEP 02 · PREFERRED DATE</div>
+      <h2>Select your preferred date.</h2>
+      <p class="desc">Choose a date for your proposed meet-and-greet request.</p>
+      <div class="note">Date selection indicates your preference only. Availability must be confirmed by the authorized booking representatives.</div>
+      <div class="field" style="margin-top:22px">
+        <label for="date">Preferred date</label>
+        <input id="date" type="date" min="2027-01-19" max="2027-03-04">
+      </div>
+      <p class="error" id="e2">Choose a date between January 19 and March 4, 2027.</p>
+      <div class="buttons">
+        <button class="btn secondary" onclick="show('s1',14)">Back</button>
+        <button class="btn" onclick="nextDate()">Continue</button>
+      </div>
+    </section>
 
-    <!-- STEP 2 -->
-    <div class="page" id="p2">
-      <h2>Choose Your Preferred Date</h2>
-      <p class="description">
-        Select one of the illustrative calendar dates below.
-        Availability is not connected to an actual event calendar.
-      </p>
+    <section class="step" id="loading2">
+      <div class="loading">
+        <div class="spinner"></div>
+        <h2>Please wait while we reconnect.</h2>
+        <p>Your selected date will be included in the inquiry details.</p>
+        <div class="loading-note">CONTINUING</div>
+      </div>
+    </section>
 
-      <div class="date-grid" id="dates"></div>
-
-      <button class="btn btn-full" onclick="selectDate()">CONTINUE</button>
-      <button class="back" onclick="showPage('p1',1)">← Back</button>
-    </div>
-
-    <!-- LOADING 2 -->
-    <div class="page loading-page" id="pLoading2">
-      <div class="spinner"></div>
-      <h2>Please Wait While We Reconnect</h2>
-      <p>Preparing your experience preferences...</p>
-    </div>
-
-    <!-- STEP 3 -->
-    <div class="page" id="p3">
-      <h2>Location Details</h2>
-      <p class="description">
-        Provide your preferred destination and event preferences.
-      </p>
+    <section class="step" id="s3">
+      <div class="kicker">STEP 03 · EVENT DETAILS</div>
+      <h2>Tell us about your event.</h2>
+      <p class="desc">Provide the location and expected guest information.</p>
 
       <div class="field">
-        <label>Country</label>
-        <select id="country">
-          <option value="">Select country</option>
-          <option>United States</option>
-          <option>United Kingdom</option>
-          <option>Canada</option>
-          <option>Australia</option>
-          <option>Nigeria</option>
+        <label for="country">Country</label>
+        <input id="country" placeholder="Country">
+      </div>
+      <div class="field">
+        <label for="city">City</label>
+        <input id="city" placeholder="City">
+      </div>
+      <div class="field">
+        <label for="venue">Venue or event location</label>
+        <input id="venue" placeholder="Venue name or event location">
+      </div>
+      <div class="field">
+        <label for="guests">Expected number of guests</label>
+        <select id="guests">
+          <option value="">Select guest capacity</option>
+          <option>Under 100</option>
+          <option>100–250</option>
+          <option>251–500</option>
+          <option>501–1,000</option>
+          <option>1,001–2,500</option>
+          <option>2,501–5,000</option>
+          <option>More than 5,000</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="eventType">Event type</label>
+        <select id="eventType">
+          <option value="">Select event type</option>
+          <option>Private celebration</option>
+          <option>Corporate event</option>
+          <option>Concert or festival</option>
+          <option>Charity or fundraising event</option>
+          <option>Wedding or anniversary</option>
           <option>Other</option>
         </select>
       </div>
-
-      <div class="field">
-        <label>Preferred City</label>
-        <input id="city" placeholder="Enter preferred city">
+      <p class="error" id="e3">Please complete all event details.</p>
+      <div class="buttons">
+        <button class="btn secondary" onclick="show('s2',28)">Back</button>
+        <button class="btn" onclick="toPackages()">Continue</button>
       </div>
+    </section>
 
-      <div class="field">
-        <label>Number of Guests</label>
-        <select id="guests">
-          <option value="1">1 Guest</option>
-          <option value="2">2 Guests</option>
-          <option value="3">3 Guests</option>
-          <option value="4">4 Guests</option>
-        </select>
-      </div>
-
-      <button class="btn btn-full" onclick="locationStep()">CONTINUE</button>
-      <button class="back" onclick="showPage('p2',2)">← Back</button>
-    </div>
-
-    <!-- STEP 4 -->
-    <div class="page" id="p4">
-      <h2>Select Your Package</h2>
-      <p class="description">
-        Compare the illustrative packages and select your preferred option.
-        Amounts are fictional and are not actual artist booking prices.
+    <section class="step" id="s4">
+      <div class="kicker">STEP 04 · PACKAGE PREFERENCE</div>
+      <h2>Choose your preferred experience.</h2>
+      <p class="desc">
+        Select the proposed package category that best suits your event.
       </p>
 
-      <div id="packageChoices">
-        <label class="choice">
-          <span>Standard<small>Illustrative experience</small></span>
-          <strong>$25,000</strong>
-          <input type="radio" name="package" value="25000" data-name="Standard">
+      <div class="packages">
+        <label class="package">
+          <div class="package-head">
+            <h3>Private Appearance</h3>
+            <span class="price">$25,000</span>
+          </div>
+          <p>Proposed starting package amount.</p>
+          <ul>
+            <li>Private event inquiry consideration</li>
+            <li>Proposed event schedule review</li>
+            <li>Event requirements discussion</li>
+          </ul>
+          <div class="package-choice">
+            <input type="radio" name="pkg" value="Private Appearance — $25,000">
+            Select package
+          </div>
         </label>
 
-        <label class="choice">
-          <span>Premium<small>Illustrative premium option</small></span>
-          <strong>$50,000</strong>
-          <input type="radio" name="package" value="50000" data-name="Premium">
+        <label class="package">
+          <div class="package-head">
+            <h3>Premium Experience</h3>
+            <span class="price">$50,000</span>
+          </div>
+          <p>Proposed premium package amount.</p>
+          <ul>
+            <li>Event requirements assessment</li>
+            <li>Production and schedule discussion</li>
+            <li>Venue and logistics review</li>
+          </ul>
+          <div class="package-choice">
+            <input type="radio" name="pkg" value="Premium Experience — $50,000">
+            Select package
+          </div>
         </label>
 
-        <label class="choice">
-          <span>VIP<small>Illustrative VIP option</small></span>
-          <strong>$100,000</strong>
-          <input type="radio" name="package" value="100000" data-name="VIP">
-        </label>
-
-        <label class="choice">
-          <span>Ultimate<small>Illustrative highest tier</small></span>
-          <strong>$250,000</strong>
-          <input type="radio" name="package" value="250000" data-name="Ultimate">
+        <label class="package">
+          <div class="package-head">
+            <h3>Exclusive Experience</h3>
+            <span class="price">$100,000</span>
+          </div>
+          <p>Proposed exclusive package amount.</p>
+          <ul>
+            <li>Detailed event requirements review</li>
+            <li>Production coordination discussion</li>
+            <li>Custom event proposal consideration</li>
+          </ul>
+          <div class="package-choice">
+            <input type="radio" name="pkg" value="Exclusive Experience — $100,000">
+            Select package
+          </div>
         </label>
       </div>
 
-      <div class="total">
-        <span>Selected amount</span>
-        <strong id="amount">$0</strong>
+      <p class="error" id="e4">Please select a package.</p>
+      <div class="note">
+        These are proposed planning amounts supplied for this inquiry
+        website. They are not published or confirmed Morgan Wallen or
+        The Neal Agency fees. Final pricing and package inclusions require
+        written confirmation from the authorized booking representatives.
+        No payment is collected here.
       </div>
+      <div class="buttons">
+        <button class="btn secondary" onclick="show('s3',48)">Back</button>
+        <button class="btn" onclick="review()">Review inquiry</button>
+      </div>
+    </section>
 
-      <button class="btn btn-full" onclick="finishBooking()">SUBMIT INQUIRY</button>
-      <button class="back" onclick="showPage('p3',3)">← Back</button>
-    </div>
+    <section class="step" id="s5">
+      <div class="kicker">STEP 05 · REVIEW DETAILS</div>
+      <h2>Review your inquiry.</h2>
+      <p class="desc">Please check your information before proceeding.</p>
+      <div class="summary" id="summary"></div>
+      <div class="note">
+        Your selection is a request for consideration, not a confirmed
+        booking or payment obligation.
+      </div>
+      <div class="buttons">
+        <button class="btn secondary" onclick="show('s4',70)">Back</button>
+        <button class="btn" onclick="finish()">Submit inquiry</button>
+      </div>
+    </section>
 
-    <!-- FINAL -->
-    <div class="page" id="p5">
-      <div class="final-result">
-        <div class="checkmark">✓</div>
-        <h2>Inquiry Completed</h2>
-
-        <p id="finalText"></p>
-
-        <p>
-          In an authorized booking service, availability and
-          participation would need to be independently verified
-          by the event organizer before any payment is requested.
+    <section class="step" id="s6">
+      <div class="confirmation">
+        <div class="check">✓</div>
+        <div class="kicker">INQUIRY STATUS</div>
+        <h2>Your inquiry is awaiting review.</h2>
+        <p class="desc">
+          Thank you for submitting your preferred event details.
+          Your request is ready for review.
         </p>
-
-        <button class="btn btn-full" onclick="resetBooking()">
-          START AGAIN
-        </button>
       </div>
-    </div>
+      <div class="note">
+        You will need to wait for the review process. If your requested
+        meeting is approved and the arrangements are confirmed, you will
+        receive further instructions through the verified booking contact.
+        No payment is due at this stage.
+      </div>
+      <div class="buttons">
+        <a class="btn full" style="text-align:center;text-decoration:none"
+           href="https://thenealagency.com/booking/" target="_blank" rel="noopener">
+           Visit The Neal Agency Booking Page
+        </a>
+      </div>
+    </section>
 
-    <p style="font-size:10px;color:#777;margin-top:25px;text-align:center">
-      Independent educational website concept. No real bookings,
-      payments, or emails are processed.
-    </p>
   </div>
-</section>
+</main>
 
 <footer>
-  <div class="footer-bottom">
-    WALLEN EXPERIENCES · INDEPENDENT FAN EXPERIENCE CONCEPT<br>
-    Not affiliated with, endorsed by, or authorized by Morgan Wallen
-    or his management. All package prices and availability are illustrative.
-  </div>
+  <p><strong>MEET & GREET EVENT INQUIRIES</strong></p>
+  <p>Booking reference: The Neal Agency (TNA)</p>
+  <p>
+    For verified booking inquiries, visit
+    <a href="https://thenealagency.com/booking/" target="_blank" rel="noopener">
+      thenealagency.com/booking
+    </a>.
+  </p>
+  <p>
+    This is an independent inquiry interface and is not an official
+    Morgan Wallen, The Neal Agency, Sticks Management, or Big Loud Records
+    website. Package amounts are proposed and require confirmation.
+  </p>
 </footer>
 
 <script>
-let selectedDate = "";
-let selectedPackage = "";
-let selectedAmount = 0;
-
-function showPage(id,step) {
-  document.querySelectorAll('.page').forEach(p=>{
-    p.classList.remove('active');
-  });
-
-  document.getElementById(id).classList.add('active');
-
-  const progress = step ? step*20 : 0;
-  document.getElementById('progress').style.width=progress+'%';
-
-  for(let i=1;i<=4;i++){
-    document.getElementById('l'+i).classList.toggle(
-      'active', i<=step
-    );
-  }
+function show(id, percent) {
+  document.querySelectorAll(".step").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.getElementById("fill").style.width = percent + "%";
+  document.getElementById("percent").textContent = percent + "%";
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function firstStep(){
-  const name=document.getElementById('name').value.trim();
-  const phone=document.getElementById('phone').value.trim();
+function begin() {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  if(!name || !phone){
-    alert('Please enter your full name and phone number.');
+  if (!name || !validEmail) {
+    document.getElementById("e1").style.display = "block";
     return;
   }
 
-  showPage('pLoading1',1);
-
-  let seconds=10;
-  document.getElementById('timer1').textContent='10 seconds';
-
-  const timer=setInterval(()=>{
-    seconds--;
-    document.getElementById('timer1').textContent=seconds+' seconds';
-
-    if(seconds<=0){
-      clearInterval(timer);
-      generateDates();
-      showPage('p2',2);
-    }
-  },1000);
+  document.getElementById("e1").style.display = "none";
+  show("loading1",14);
+  setTimeout(() => show("s2",28),10000);
 }
 
-function generateDates(){
-  const container=document.getElementById('dates');
-  container.innerHTML='';
-
-  const start=new Date(2027,0,19);
-  const end=new Date(2027,2,4);
-
-  let dates=[];
-
-  for(let d=new Date(start);d<=end;d.setDate(d.getDate()+1)){
-    dates.push(new Date(d));
-  }
-
-  dates.sort(()=>Math.random()-.5);
-  dates=dates.slice(0,12);
-  dates.sort((a,b)=>a-b);
-
-  dates.forEach(date=>{
-    const day=date.getDate();
-    const month=date.toLocaleString('en-US',{month:'short'});
-    const year=date.getFullYear();
-
-    const button=document.createElement('button');
-    button.className='date-option';
-    button.type='button';
-    button.textContent=month+' '+day+', '+year;
-
-    if(Math.random()<0.25){
-      button.classList.add('unavailable');
-      button.disabled=true;
-    }else{
-      button.onclick=()=>{
-        document.querySelectorAll('.date-option')
-          .forEach(b=>b.classList.remove('selected'));
-
-        button.classList.add('selected');
-        selectedDate=button.textContent;
-      };
-    }
-
-    container.appendChild(button);
-  });
-}
-
-function selectDate(){
-  if(!selectedDate){
-    alert('Please select an available date.');
+function nextDate() {
+  const date = document.getElementById("date").value;
+  if (!date || date < "2027-01-19" || date > "2027-03-04") {
+    document.getElementById("e2").style.display = "block";
     return;
   }
-
-  showPage('pLoading2',2);
-
-  setTimeout(()=>{
-    showPage('p3',3);
-  },10000);
+  document.getElementById("e2").style.display = "none";
+  show("loading2",28);
+  setTimeout(() => show("s3",48),10000);
 }
 
-function locationStep(){
-  const country=document.getElementById('country').value;
-  const city=document.getElementById('city').value.trim();
+function toPackages() {
+  const ids = ["country","city","venue","guests","eventType"];
+  const complete = ids.every(id => document.getElementById(id).value.trim());
 
-  if(!country || !city){
-    alert('Please complete your location details.');
+  if (!complete) {
+    document.getElementById("e3").style.display = "block";
     return;
   }
-
-  showPage('p4',4);
+  document.getElementById("e3").style.display = "none";
+  show("s4",70);
 }
 
-document.querySelectorAll('input[name="package"]').forEach(input=>{
-  input.addEventListener('change',()=>{
-    document.querySelectorAll('.choice')
-      .forEach(c=>c.classList.remove('selected'));
-
-    input.closest('.choice').classList.add('selected');
-
-    selectedPackage=input.dataset.name;
-    selectedAmount=Number(input.value);
-
-    document.getElementById('amount').textContent=
-      '$'+selectedAmount.toLocaleString('en-US');
-  });
-});
-
-function startBooking(name,amount){
-  document.getElementById('booking').scrollIntoView({
-    behavior:'smooth'
-  });
-
-  setTimeout(()=>{
-    const option=document.querySelector(
-      'input[name="package"][value="'+amount+'"]'
-    );
-
-    if(option){
-      option.checked=true;
-      option.dispatchEvent(new Event('change'));
-    }
-  },500);
-}
-
-function finishBooking(){
-  if(!selectedPackage){
-    alert('Please select a package.');
+function review() {
+  const pkg = document.querySelector('input[name="pkg"]:checked');
+  if (!pkg) {
+    document.getElementById("e4").style.display = "block";
     return;
   }
+  document.getElementById("e4").style.display = "none";
 
-  const name=document.getElementById('name').value;
-  const country=document.getElementById('country').value;
-  const city=document.getElementById('city').value;
-  const guests=document.getElementById('guests').value;
+  const rows = [
+    ["Full name",document.getElementById("name").value],
+    ["Email",document.getElementById("email").value],
+    ["Preferred date",document.getElementById("date").value],
+    ["Country",document.getElementById("country").value],
+    ["City",document.getElementById("city").value],
+    ["Venue",document.getElementById("venue").value],
+    ["Expected guests",document.getElementById("guests").value],
+    ["Event type",document.getElementById("eventType").value],
+    ["Selected package",pkg.value]
+  ];
 
-  document.getElementById('finalText').textContent=
-    'Your sample inquiry for '+name+
-    ' has been completed. Preferred date: '+selectedDate+
-    '. Location: '+city+', '+country+
-    '. Guests: '+guests+
-    '. Selected package: '+selectedPackage+
-    '. Illustrative amount: $'+
-    selectedAmount.toLocaleString('en-US')+
-    '. No booking or payment has been made.';
+  document.getElementById("summary").innerHTML = rows.map(([key,value]) =>
+    `<div class="summary-row"><span>${escapeHTML(key)}</span><span>${escapeHTML(value)}</span></div>`
+  ).join("");
 
-  showPage('p5',5);
+  show("s5",88);
 }
 
-function resetBooking(){
-  selectedDate='';
-  selectedPackage='';
-  selectedAmount=0;
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  })[c]);
+}
 
-  document.getElementById('name').value='';
-  document.getElementById('phone').value='';
-  document.getElementById('city').value='';
-  document.getElementById('country').selectedIndex=0;
-  document.getElementById('guests').selectedIndex=0;
-  document.querySelectorAll('input[name="package"]').forEach(i=>{
-    i.checked=false;
-  });
-
-  document.querySelectorAll('.choice').forEach(c=>{
-    c.classList.remove('selected');
-  });
-
-  document.getElementById('amount').textContent='$0';
-
-  showPage('p1',1);
+function finish() {
+  show("s6",100);
 }
 </script>
-
 </body>
 </html>
