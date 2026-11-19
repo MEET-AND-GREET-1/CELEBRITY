@@ -22,6 +22,7 @@
             --text-secondary: #b0a89a;
             --error: #b45a4a;
             --success: #5a9e6f;
+            --warning: #c9a84c;
             --transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
         }
@@ -376,12 +377,6 @@
             margin-bottom: 4px;
         }
 
-        .package-price small {
-            font-size: 13px;
-            color: var(--text-secondary);
-            font-weight: 300;
-        }
-
         .package-duration {
             font-size: 11px;
             letter-spacing: 2px;
@@ -489,10 +484,7 @@
             text-transform: uppercase;
         }
 
-        .skip-btn:hover {
-            background: rgba(198, 165, 91, 0.08);
-            border-color: var(--gold);
-        }
+        .skip-btn:hover { background: rgba(198, 165, 91, 0.08); border-color: var(--gold); }
 
         .code-input-group {
             display: flex;
@@ -571,7 +563,7 @@
         .acceptance-card p:last-child { margin-bottom: 0; }
         .acceptance-card strong { color: var(--text-primary); font-weight: 500; }
 
-        .payment-summary {
+        .summary-card {
             background: var(--black-card);
             border: 1px solid rgba(198, 165, 91, 0.15);
             border-radius: 10px;
@@ -579,27 +571,29 @@
             margin-bottom: 24px;
         }
 
-        .payment-row {
+        .summary-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             padding: 12px 0;
             border-bottom: 1px solid rgba(198, 165, 91, 0.08);
             font-size: 14px;
+            gap: 16px;
         }
 
-        .payment-row:last-child { border-bottom: none; }
-        .payment-row .label { color: var(--text-secondary); font-weight: 300; }
-        .payment-row .value { color: var(--text-primary); font-weight: 400; text-align: right; }
+        .summary-row:last-child { border-bottom: none; }
+        .summary-row .label { color: var(--text-secondary); font-weight: 300; flex-shrink: 0; }
+        .summary-row .value { color: var(--text-primary); font-weight: 400; text-align: right; word-break: break-word; }
 
-        .payment-row.total {
+        .summary-row.total {
             padding-top: 16px;
             margin-top: 4px;
             border-top: 1px solid rgba(198, 165, 91, 0.25);
             border-bottom: none;
+            align-items: center;
         }
 
-        .payment-row.total .label {
+        .summary-row.total .label {
             font-weight: 500;
             color: var(--gold);
             letter-spacing: 1px;
@@ -607,12 +601,65 @@
             font-size: 11px;
         }
 
-        .payment-row.total .value {
+        .summary-row.total .value {
             font-family: 'Playfair Display', serif;
             font-size: 24px;
             color: var(--gold-light);
             font-weight: 500;
         }
+
+        .account-card {
+            background: linear-gradient(180deg, rgba(198, 165, 91, 0.05) 0%, var(--black-card) 100%);
+            border: 1px solid rgba(198, 165, 91, 0.2);
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .account-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .account-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(198, 165, 91, 0.08);
+            font-size: 13px;
+            gap: 16px;
+        }
+
+        .account-row:last-child { border-bottom: none; }
+        .account-row .ac-label { color: var(--text-secondary); font-weight: 300; flex-shrink: 0; }
+        .account-row .ac-value {
+            color: var(--text-primary);
+            font-weight: 400;
+            text-align: right;
+            word-break: break-all;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .account-row .ac-value.mono { font-family: 'Courier New', monospace; letter-spacing: 0.5px; }
+
+        .payment-note {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: rgba(198, 165, 91, 0.04);
+            border-left: 2px solid rgba(198, 165, 91, 0.4);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .payment-note strong { color: var(--gold-light); font-weight: 500; }
 
         .status-message {
             display: none;
@@ -637,6 +684,47 @@
             background: rgba(90, 158, 111, 0.12);
             border: 1px solid rgba(90, 158, 111, 0.3);
             color: #9ad4ab;
+        }
+
+        .pending-status {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            padding: 32px 24px;
+            background: rgba(201, 168, 76, 0.04);
+            border: 1px solid rgba(201, 168, 76, 0.25);
+            border-radius: 12px;
+            margin-top: 24px;
+        }
+
+        .pending-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(201, 168, 76, 0.1);
+            border: 1px solid rgba(201, 168, 76, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: var(--warning);
+        }
+
+        .pending-status h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--warning);
+            letter-spacing: 0.5px;
+        }
+
+        .pending-status p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-weight: 300;
+            text-align: center;
         }
 
         .confirmation-reveal {
@@ -907,79 +995,98 @@
         <button class="btn btn-primary" id="page6Btn" onclick="handlePage6()">Continue</button>
     </div>
 
-    <!-- ===== PAGE 7: PAYMENT ===== -->
+    <!-- ===== PAGE 7: PAYMENT SUMMARY ===== -->
     <div class="page" id="page7">
         <div class="brand">
             <div class="brand-mark">Private Inquiry</div>
             <div class="brand-divider"></div>
         </div>
 
-        <h1 class="page-title">Payment Confirmation</h1>
-        <p class="page-subtitle">Review your booking details and confirm payment.</p>
+        <h1 class="page-title">Payment Summary</h1>
+        <p class="page-subtitle">Review your booking details before proceeding to payment.</p>
 
-        <div class="payment-summary">
-            <div class="payment-row">
+        <div class="summary-card">
+            <div class="summary-row">
                 <span class="label">Package</span>
                 <span class="value" id="payPackage">—</span>
             </div>
-            <div class="payment-row">
+            <div class="summary-row">
                 <span class="label">Duration</span>
                 <span class="value" id="payDuration">—</span>
             </div>
-            <div class="payment-row">
+            <div class="summary-row">
                 <span class="label">Preferred Date</span>
                 <span class="value" id="payDate">—</span>
             </div>
-            <div class="payment-row">
+            <div class="summary-row">
                 <span class="label">Venue</span>
                 <span class="value" id="payVenue">—</span>
             </div>
-            <div class="payment-row">
+            <div class="summary-row">
                 <span class="label">Location</span>
                 <span class="value" id="payLocation">—</span>
             </div>
-            <div class="payment-row">
+            <div class="summary-row">
                 <span class="label">Guests</span>
                 <span class="value" id="payGuests">—</span>
             </div>
-            <div class="payment-row total">
+            <div class="summary-row total">
                 <span class="label">Total Due</span>
                 <span class="value" id="payTotal">—</span>
             </div>
         </div>
 
-        <div class="status-message error" id="page7Error"></div>
+        <button class="btn btn-primary" onclick="goToPage(8)">Proceed to Payment</button>
+    </div>
 
-        <button class="btn btn-primary" id="payBtn" onclick="handlePayment()">Confirm Payment</button>
-
-        <div class="loader-overlay" id="paymentLoader">
-            <div class="circular-loader fast">
-                <svg viewBox="0 0 80 80">
-                    <circle class="track" cx="40" cy="40" r="36"></circle>
-                    <circle class="progress" cx="40" cy="40" r="36"></circle>
-                </svg>
-            </div>
-            <div class="loader-text">Processing payment<span class="pulse">...</span></div>
+    <!-- ===== PAGE 8: BANK ACCOUNT DETAILS ===== -->
+    <div class="page" id="page8">
+        <div class="brand">
+            <div class="brand-mark">Private Inquiry</div>
+            <div class="brand-divider"></div>
         </div>
 
-        <div class="confirmation-reveal" id="confirmationReveal">
-            <h3>✦ Payment Confirmed</h3>
-            <div class="detail-item">
-                <span class="dt">Venue</span>
-                <span class="dd" id="confVenue">—</span>
+        <h1 class="page-title">Payment Instructions</h1>
+        <p class="page-subtitle">Complete your wire transfer using the account details below.</p>
+
+        <div class="account-card">
+            <h4>Beneficiary Account Details</h4>
+            <div class="account-row">
+                <span class="ac-label">Account Name</span>
+                <span class="ac-value">Wallen Touring Group LLC</span>
             </div>
-            <div class="detail-item">
-                <span class="dt">Date</span>
-                <span class="dd" id="confDate">—</span>
+            <div class="account-row">
+                <span class="ac-label">Bank Name</span>
+                <span class="ac-value">First Horizon Bank</span>
             </div>
-            <div class="detail-item">
-                <span class="dt">Package</span>
-                <span class="dd" id="confPackage">—</span>
+            <div class="account-row">
+                <span class="ac-label">Routing Number</span>
+                <span class="ac-value mono">084000026</span>
             </div>
-            <div class="detail-item">
-                <span class="dt">Status</span>
-                <span class="dd" style="color: var(--success);">Confirmed</span>
+            <div class="account-row">
+                <span class="ac-label">Account Number</span>
+                <span class="ac-value mono">7392041586</span>
             </div>
+            <div class="account-row">
+                <span class="ac-label">SWIFT / BIC</span>
+                <span class="ac-value mono">FHBKUS44XXX</span>
+            </div>
+            <div class="account-row">
+                <span class="ac-label">Reference</span>
+                <span class="ac-value mono" id="acRef">—</span>
+            </div>
+        </div>
+
+        <div class="payment-note">
+            <strong>Important:</strong> Please include your reference number in the wire transfer description. Your booking will be confirmed once the payment has been verified. Funds must be received within 48 hours to secure your reserved date.
+        </div>
+
+        <button class="btn btn-primary" onclick="handlePaymentConfirmation()">Confirm Payment</button>
+
+        <div class="pending-status" id="pendingStatus" style="display: none;">
+            <div class="pending-icon">⏳</div>
+            <h4>Payment Not Confirmed</h4>
+            <p>We have not yet received your wire transfer. Please complete the payment using the account details above. This status will update once the funds are verified by our finance team.</p>
         </div>
     </div>
 
@@ -1002,9 +1109,11 @@
         packageDuration: ''
     };
 
+    // Countdown persistence
+    const COUNTDOWN_KEY = 'mw_inquiry_countdown_start';
+    const COUNTDOWN_DURATION = 12 * 60 * 60; // 12 hours in seconds
+
     let countdownInterval = null;
-    const COUNTDOWN_DURATION = 12 * 60 * 60;
-    let countdownRemaining = COUNTDOWN_DURATION;
 
     // ============================================================
     // PAGE NAVIGATION
@@ -1024,6 +1133,7 @@
 
         if (n === 4) startCountdown();
         if (n === 7) populatePaymentSummary();
+        if (n === 8) populateAccountRef();
     }
 
     // ============================================================
@@ -1127,10 +1237,23 @@
     }
 
     // ============================================================
-    // PAGE 4 — COUNTDOWN (12 hours) with skip
+    // PAGE 4 — COUNTDOWN (persistent across refresh)
     // ============================================================
+    function getCountdownStart() {
+        const stored = localStorage.getItem(COUNTDOWN_KEY);
+        if (stored) return parseInt(stored, 10);
+        const now = Date.now();
+        localStorage.setItem(COUNTDOWN_KEY, now.toString());
+        return now;
+    }
+
+    function getCountdownRemaining() {
+        const start = getCountdownStart();
+        const elapsed = Math.floor((Date.now() - start) / 1000);
+        return Math.max(0, COUNTDOWN_DURATION - elapsed);
+    }
+
     function startCountdown() {
-        countdownRemaining = COUNTDOWN_DURATION;
         if (countdownInterval) clearInterval(countdownInterval);
 
         const timeEl = document.getElementById('countdownTime');
@@ -1139,48 +1262,36 @@
         const circumference = 565.48;
 
         function updateDisplay() {
-            const hrs = Math.floor(countdownRemaining / 3600);
-            const mins = Math.floor((countdownRemaining % 3600) / 60);
-            const secs = countdownRemaining % 60;
+            const remaining = getCountdownRemaining();
+            const hrs = Math.floor(remaining / 3600);
+            const mins = Math.floor((remaining % 3600) / 60);
+            const secs = remaining % 60;
 
             timeEl.textContent =
                 String(hrs).padStart(2, '0') + ':' +
                 String(mins).padStart(2, '0') + ':' +
                 String(secs).padStart(2, '0');
 
-            const progress = 1 - (countdownRemaining / COUNTDOWN_DURATION);
+            const progress = 1 - (remaining / COUNTDOWN_DURATION);
             progressEl.style.strokeDashoffset = circumference * progress;
 
-            if (countdownRemaining <= 5) {
-                hintEl.textContent = 'Finalizing...';
+            if (remaining <= 5) hintEl.textContent = 'Finalizing...';
+
+            if (remaining <= 0) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+                setTimeout(() => goToPage(5), 800);
             }
         }
 
         updateDisplay();
-
-        countdownInterval = setInterval(() => {
-            countdownRemaining--;
-
-            if (countdownRemaining <= 0) {
-                clearInterval(countdownInterval);
-                countdownInterval = null;
-                countdownRemaining = 0;
-                updateDisplay();
-
-                setTimeout(() => { goToPage(5); }, 800);
-            } else {
-                updateDisplay();
-            }
-        }, 1000);
+        countdownInterval = setInterval(updateDisplay, 1000);
     }
 
-    // Skip countdown for testing
     function skipCountdown() {
         if (countdownInterval) clearInterval(countdownInterval);
         countdownInterval = null;
-        countdownRemaining = 0;
-        document.getElementById('countdownTime').textContent = '00:00:00';
-        document.getElementById('countdownProgress').style.strokeDashoffset = 565.48;
+        localStorage.removeItem(COUNTDOWN_KEY);
         goToPage(5);
     }
 
@@ -1248,7 +1359,7 @@
     }
 
     // ============================================================
-    // PAGE 7 — PAYMENT
+    // PAGE 7 — PAYMENT SUMMARY
     // ============================================================
     function populatePaymentSummary() {
         document.getElementById('payPackage').textContent = state.package || '—';
@@ -1271,27 +1382,20 @@
         return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     }
 
-    function handlePayment() {
-        document.getElementById('payBtn').style.display = 'none';
-        document.getElementById('paymentLoader').classList.add('active');
-        document.getElementById('page7Error').textContent = '';
+    // ============================================================
+    // PAGE 8 — BANK ACCOUNT & PAYMENT CONFIRMATION
+    // ============================================================
+    function populateAccountRef() {
+        // Generate a realistic reference number
+        const ref = 'MW-' + Math.random().toString(36).substring(2, 8).toUpperCase() + '-' + new Date().getFullYear();
+        document.getElementById('acRef').textContent = ref;
+    }
 
-        setTimeout(() => {
-            document.getElementById('paymentLoader').classList.remove('active');
-            document.getElementById('payBtn').style.display = 'flex';
-
-            document.getElementById('confVenue').textContent = state.venue || '—';
-            document.getElementById('confDate').textContent = formatDate(state.eventDate) || '—';
-            document.getElementById('confPackage').textContent = state.package || '—';
-
-            const reveal = document.getElementById('confirmationReveal');
-            reveal.classList.add('visible');
-
-            setTimeout(() => reveal.scrollIntoView({ behavior: 'smooth', block: 'center' }), 100);
-
-            document.getElementById('payBtn').disabled = true;
-            document.getElementById('payBtn').textContent = 'Payment Complete';
-        }, 3000);
+    function handlePaymentConfirmation() {
+        // Payment stays unconfirmed forever — just show the pending status
+        const pendingEl = document.getElementById('pendingStatus');
+        pendingEl.style.display = 'flex';
+        pendingEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     // ============================================================
@@ -1317,7 +1421,6 @@
             if (id === 'page2') { e.preventDefault(); handlePage2(); }
             if (id === 'page3') { e.preventDefault(); handlePage3(); }
             if (id === 'page6') { e.preventDefault(); handlePage6(); }
-            if (id === 'page7') { e.preventDefault(); handlePayment(); }
         }
     });
 
